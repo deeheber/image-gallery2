@@ -3,11 +3,14 @@ const app = module.exports = express();
 const morgan = require('morgan');
 const images = require('./routes/images');
 const albums = require('./routes/albums');
+const auth = require('./routes/auth');
+const ensureAuth = require('./ensureAuth');
 
 app.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/public'));
 
+//TODO: export this function into a seperate file
 app.use((req, res, next)=>{
   const url = '*';
   res.header('Access-Control-Allow-Origin', url);
@@ -16,8 +19,9 @@ app.use((req, res, next)=>{
   next();
 });
 
-app.use('/api/images', images);
-app.use('/api/albums', albums);
+app.use('/api', auth);
+app.use('/api/images', ensureAuth, images);
+app.use('/api/albums', ensureAuth, albums);
 
 // eslint-disable-next-line
 app.use((err, req, res, next)=>{
