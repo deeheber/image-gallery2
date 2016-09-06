@@ -10,13 +10,15 @@ router.post('/signup', jsonParser, (req, res)=>{
 
   if(!username){
     return res.status(400).json({
-      msg: 'Don\'t forget to include a username'
+      msg: 'No username',
+      reason: 'Don\'t forget to include a username'
     });
   }
 
   if(!password){
     return res.status(400).json({
-      msg: 'Don\'t forget to include a password'
+      msg: 'No password',
+      reason: 'Don\'t forget to include a password'
     });
   }
 
@@ -52,15 +54,22 @@ router.post('/signin', jsonParser, (req, res)=>{
     .then(user=>{
       if(!user){
         return res.status(400).json({
-          msg: 'Usernmane or password is incorrect',
-          reason: 'no user ' + username
+          msg: 'No username',
+          reason: 'Please include a username'
+        });
+      }
+
+      if(!password){
+        return res.status(400).json({
+          msg: 'No password',
+          reason: 'Please include a password'
         });
       }
 
       if (!user.compareHash(password)){
         return res.status(400).json({
           msg: 'Usernmane or password is incorrect',
-          reason: 'password doesn\'t match!'
+          reason: 'Usernmane or password is incorrect'
         });
       }
 
@@ -68,7 +77,7 @@ router.post('/signin', jsonParser, (req, res)=>{
     })
     .catch(err=>{
       res.status(500).json({
-        msg: 'didn\'t work',
+        msg: 'There was an error with the server or database',
         reason: err
       });
     });
