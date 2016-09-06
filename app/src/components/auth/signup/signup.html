@@ -3,13 +3,17 @@
 	<form name="auth" ng-submit="$ctrl.authenticate()">
 		<div>
 			<label>
-				username: <input ng-model="$ctrl.credentials.username">
+				Email: <input type="password" ng-model="$ctrl.credentials.email">
 			</label>
 		</div>
-
 		<div>
 			<label>
-				password: <input type="password" ng-model="$ctrl.credentials.password">
+				Username: <input ng-model="$ctrl.credentials.username">
+			</label>
+		</div>
+		<div>
+			<label>
+				Password: <input type="password" ng-model="$ctrl.credentials.password">
 			</label>
 		</div>
 

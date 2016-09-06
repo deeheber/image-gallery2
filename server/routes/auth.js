@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const jsonParser = require('body-parser').json();
 const User = require( '../models/user' );
-const token = require( '../token' );
-const ensureAuth = require( '../ensureAuth' );
+const token = require( '../lib/token' );
+const ensureAuth = require( '../lib/ensureAuth' );
 
 router.post('/signup', jsonParser, (req, res)=>{
   const {username, password} = req.body;
