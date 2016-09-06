@@ -21,8 +21,8 @@ app.use((req, res, next)=>{
 
 //TODO organize auth related files in their own folder
 app.use('/api', auth);
-app.use('/api/images', /*ensureAuth,*/ images);
-app.use('/api/albums', /*ensureAuth,*/ albums);
+app.use('/api/images', ensureAuth, images);
+app.use('/api/albums', ensureAuth, albums);
 
 // eslint-disable-next-line
 app.use((err, req, res, next)=>{
