@@ -4,9 +4,7 @@ import routes from './routes';
 import './scss/main.scss';
 import 'angular-material/angular-material.css';
 
-const module = angular.module(app);
+app.config(routes);
+app.value('apiUrl', process.env.API_URL || '/api');
 
-module.config(routes);
-module.value('apiUrl', process.env.API_URL || '/api');
-
-angular.bootstrap(document, [app]);
+angular.bootstrap(document, [app.name]);
