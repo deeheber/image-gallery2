@@ -1,6 +1,6 @@
 {
   "name": "image-gallery-app",
-  "version": "1.4.0",
+  "version": "1.6.0",
   "description": "source code for my image gallery",
   "main": "src/main.js",
   "directories": {
