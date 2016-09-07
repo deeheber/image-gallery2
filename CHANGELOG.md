@@ -1,6 +1,10 @@
 # Change log
 All notable changes to this project will be documented in this file
 
+## 1.6.0 - 2016-09-07
+Added
+- User auth/login to view albums and photos
+
 ## 1.5.0 - 2016-09-05
 Added
 - User interface and functionality to update a photo album
