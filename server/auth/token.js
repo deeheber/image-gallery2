@@ -2,13 +2,12 @@ const jwt = require('jsonwebtoken');
 const sekrit = process.env.APP_SECRET || 'temp secret';
 
 module.exports = {
-  //TODO: add token expiration per https://www.npmjs.com/package/jsonwebtoken
   sign (user){
     return new Promise((resolve, reject)=>{
       jwt.sign({
         id: user.id,
         roles: user.roles
-      }, sekrit, null, (err, token)=>{
+      }, sekrit, {expiresIn: '30 days'}, (err, token)=>{
         if (err) return reject(err);
         resolve(token);
       });

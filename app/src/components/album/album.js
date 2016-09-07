@@ -23,8 +23,13 @@ function controller(imageService, $state){
         this.display = params.display;
       } else if(params.display === 'thumbnail'){
         this.display = params.display;
-      } else {
+      } else if(params.display === 'list'){
+        this.display = params.display;
+      }
+      else {
+        // fallback for invalid display params
         this.display = 'list';
+        $state.go($state.current.name, {display: 'list'});
       }
     } else {
       this.display = params.display || 'list';
@@ -34,6 +39,7 @@ function controller(imageService, $state){
   this.changeDisplay = (selectedDisplay)=>{
     //TODO refactor this, so it takes a dynamic value
     //vs a hardcoded string passed in as the selectedDisplay
+    //checkout user-auth.js
     this.display = selectedDisplay;
     $state.go($state.current.name, {display: this.display});
   };

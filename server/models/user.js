@@ -3,10 +3,18 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
-  username: {type: String, required: true},
-  //TODO: add in email match regex here
-  email: {type: String},
-  password: {type: String, required: true},
+  username: {
+    type: String, 
+    required: true
+  },
+  email: {
+    type: String, 
+    match: [/\S+@\S+\.\S+/, 'Please enter a valid email address.']
+  },
+  password: {
+    type: String, 
+    required: true
+  },
   roles: [String]
 });
 

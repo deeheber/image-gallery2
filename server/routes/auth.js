@@ -5,8 +5,15 @@ const token = require( '../auth/token' );
 const ensureAuth = require( '../auth/ensureAuth' );
 
 router.post('/signup', jsonParser, (req, res)=>{
-  const {username, password} = req.body;
+  const {email, username, password} = req.body;
   delete req.body.password;
+
+  if(!(/\S+@\S+\.\S+/.test(email))){
+    return res.status(400).json({
+      msg: 'Invalid email',
+      reason: 'Email address must contain an "@" and a "."'
+    });
+  }
 
   if(!username){
     return res.status(400).json({
