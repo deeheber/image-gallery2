@@ -1,9 +1,9 @@
 <h2>Sign in to view photos</h2>
-	<form name="auth" ng-submit="$ctrl.authenticate()">
-		<md-input-container>
+	<form name="auth" ng-submit="$ctrl.authenticate()" layout="column">
+		<md-input-container class="md-accent">
 			<input placeholder="Username" ng-model="$ctrl.credentials.username">
 		</md-input-container>
-		<md-input-container>
+		<md-input-container class="md-accent">
 			 <input placeholder="Password" type="password" ng-model="$ctrl.credentials.password">
 		</md-input-container>
 		</md-dialog-content>

@@ -54,19 +54,19 @@
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _routes = __webpack_require__(90);
+	var _routes = __webpack_require__(87);
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
-	__webpack_require__(91);
+	__webpack_require__(88);
 	
-	__webpack_require__(93);
+	__webpack_require__(90);
 	
-	var _http = __webpack_require__(95);
+	var _http = __webpack_require__(92);
 	
 	var _http2 = _interopRequireDefault(_http);
 	
-	var _auth = __webpack_require__(96);
+	var _auth = __webpack_require__(93);
 	
 	var _auth2 = _interopRequireDefault(_auth);
 	
@@ -16812,19 +16812,15 @@
 	
 	var _angularMaterial2 = _interopRequireDefault(_angularMaterial);
 	
-	__webpack_require__(84);
+	var _angularMessages = __webpack_require__(84);
 	
-	var _ngDialog = __webpack_require__(85);
-	
-	var _ngDialog2 = _interopRequireDefault(_ngDialog);
+	var _angularMessages2 = _interopRequireDefault(_angularMessages);
 	
 	__webpack_require__(86);
 	
-	__webpack_require__(88);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var app = _angular2.default.module('myApp', [_angularUiRouter2.default, _angular2.default.module('ui.router.state.events').name, _ngDialog2.default, _components2.default, _services2.default, _angularMaterial2.default]);
+	var app = _angular2.default.module('myApp', [_angularUiRouter2.default, _angular2.default.module('ui.router.state.events').name, _angularMessages2.default, _components2.default, _services2.default, _angularMaterial2.default]);
 	
 	app.config(['$mdThemingProvider', function ($mdThemingProvider) {
 	  $mdThemingProvider.theme('default').dark();
@@ -20557,7 +20553,7 @@
 /* 18 */
 /***/ function(module, exports) {
 
-	module.exports = "<div ng-class=\"$ctrl.styles.album\">\n  <h1>{{$ctrl.title}}</h1>\n\n  <!-- Radio buttons -->\n  <div ng-class=$ctrl.styles.radioButtons>\n    <md-radio-group ng-model=\"$ctrl.display\" layout=\"row\" layout-align=\"center center\">\n      <md-radio-button class=\"md-primary\" value=\"list\" aria-label=\"list\" ng-click=\"$ctrl.changeDisplay('list')\">\n        List\n      </md-radio-button>\n      <md-radio-button class=\"md-primary\" value=\"thumbnail\" aria-label=\"thumbnail\" ng-click=\"$ctrl.changeDisplay('thumbnail')\">\n        Thumbnail\n      </md-radio-button>\n      <md-radio-button class=\"md-primary\" value=\"gallery\" aria-label=\"gallery\" ng-click=\"$ctrl.changeDisplay('gallery')\">\n        Gallery\n      </md-radio-button>\n    </md-radio-group>\n  </div>\n\n  <!-- Image and image info -->\n  <section>\n    <span ng-repeat=\"image in $ctrl.images\">\n      <list ng-if=\"$ctrl.display === 'list'\" info=\"image\" remove=$ctrl.remove update=$ctrl.update></list>\n      <thumbnail ng-if=\"$ctrl.display === 'thumbnail'\" info=\"image\"></thumbnail>\n      <gallery ng-if=\"$ctrl.display === 'gallery'\" info=\"image\"></gallery>\n    </span>\n  </section>\n\n  <!-- Form to add more images -->\n  <section>\n    <add-image-form add=\"$ctrl.add\" id=\"$ctrl.albumId\"></add-image-form>\n  </section>\n\n</div>\n";
+	module.exports = "<div ng-class=\"$ctrl.styles.album\">\n  <h1>{{$ctrl.title}}</h1>\n\n  <!-- Radio buttons -->\n  <div ng-class=$ctrl.styles.radioButtons>\n    <md-radio-group ng-model=\"$ctrl.display\" layout=\"row\" layout-align=\"center center\">\n      <md-radio-button class=\"md-accent\" value=\"list\" aria-label=\"list\" ng-click=\"$ctrl.changeDisplay('list')\">\n        List\n      </md-radio-button>\n      <md-radio-button class=\"md-accent\" value=\"thumbnail\" aria-label=\"thumbnail\" ng-click=\"$ctrl.changeDisplay('thumbnail')\">\n        Thumbnail\n      </md-radio-button>\n      <md-radio-button class=\"md-accent\" value=\"gallery\" aria-label=\"gallery\" ng-click=\"$ctrl.changeDisplay('gallery')\">\n        Gallery\n      </md-radio-button>\n    </md-radio-group>\n  </div>\n\n  <!-- Image and image info -->\n  <section>\n    <span ng-repeat=\"image in $ctrl.images\">\n      <list ng-if=\"$ctrl.display === 'list'\" info=\"image\" remove=$ctrl.remove update=$ctrl.update></list>\n      <thumbnail ng-if=\"$ctrl.display === 'thumbnail'\" info=\"image\"></thumbnail>\n      <gallery ng-if=\"$ctrl.display === 'gallery'\" info=\"image\"></gallery>\n    </span>\n  </section>\n\n  <!-- Form to add more images -->\n  <section>\n    <add-image-form add=\"$ctrl.add\" id=\"$ctrl.albumId\"></add-image-form>\n  </section>\n\n</div>\n";
 
 /***/ },
 /* 19 */
@@ -20647,7 +20643,7 @@
 /* 26 */
 /***/ function(module, exports) {
 
-	module.exports = "<span ng-class=\"$ctrl.styles.list\">\n  <div class=\"item\">\n    <h2>{{$ctrl.info.title}}</h2>\n    <p>{{$ctrl.info.description}}</p>\n    <a ng-href=\"{{$ctrl.info.link}}\">View</a>\n    <div>\n      <md-button ng-click=\"showWarning=!showWarning\">Delete</md-button>\n      <md-button ng-hide=\"showUpdate\" ng-click=\"showUpdate=!showUpdate\">Edit</md-button>\n      <md-button ng-show=\"showUpdate\" ng-click=\"showUpdate=false\">Cancel Edit</md-button>\n    </div>\n    <!-- Update Form -->\n    <update-image-form ng-show=\"showUpdate\" showUpdate=\"$ctrl.showUpdate\" update=$ctrl.update info=$ctrl.info></update-image-form>\n    <!-- Warning message when deleting an image -->\n    <div ng-show=\"showWarning\">\n      <p class=\"confirmMessage\">Are you sure?</p>\n        <md-button ng-click=\"$ctrl.remove($ctrl.info)\">Confirm Delete</md-button>\n        <md-button ng-click=\"showWarning=false\">Keep Photo</md-button>\n    </div>\n  </div>\n</span>\n";
+	module.exports = "<span ng-class=\"$ctrl.styles.list\">\n  <div class=\"item\">\n    <h2>{{$ctrl.info.title}}</h2>\n    <h3>{{$ctrl.info.description}}</h3>\n    <a ng-href=\"{{$ctrl.info.link}}\">VIEW PHOTO</a>\n    <div>\n      <md-button ng-click=\"showWarning=!showWarning\">Delete</md-button>\n      <md-button ng-hide=\"showUpdate\" ng-click=\"showUpdate=!showUpdate\">Edit</md-button>\n      <md-button ng-show=\"showUpdate\" ng-click=\"showUpdate=false\">Cancel Edit</md-button>\n    </div>\n    <!-- Update Form -->\n    <update-image-form ng-show=\"showUpdate\" showUpdate=\"$ctrl.showUpdate\" update=$ctrl.update info=$ctrl.info></update-image-form>\n    <!-- Warning message when deleting an image -->\n    <div ng-show=\"showWarning\">\n      <p class=\"confirmMessage\">Are you sure?</p>\n        <md-button class=\"md-warn\" ng-click=\"$ctrl.remove($ctrl.info)\">Confirm Delete</md-button>\n        <md-button ng-click=\"showWarning=false\">Keep Photo</md-button>\n    </div>\n  </div>\n</span>\n";
 
 /***/ },
 /* 27 */
@@ -20948,7 +20944,7 @@
 /* 48 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n\t<h2>Sign in to view photos</h2>\n\t<form name=\"auth\" ng-submit=\"$ctrl.authenticate()\">\n\t\t<div>\n\t\t\t<label>\n\t\t\t\tUsername: <input ng-model=\"$ctrl.credentials.username\">\n\t\t\t</label>\n\t\t</div>\n\n\t\t<div>\n\t\t\t<label>\n\t\t\t\tPassword: <input type=\"password\" ng-model=\"$ctrl.credentials.password\">\n\t\t\t</label>\n\t\t</div>\n\n\t\t<button type=\"submit\">Sign In</button>\n\t</form>\n\t<div class=\"error\" ng-if='$ctrl.error'>{{$ctrl.error.reason}}</div>\n</section>\n";
+	module.exports = "<h2>Sign in to view photos</h2>\n\t<form name=\"auth\" ng-submit=\"$ctrl.authenticate()\" layout=\"column\">\n\t\t<md-input-container class=\"md-accent\">\n\t\t\t<input placeholder=\"Username\" ng-model=\"$ctrl.credentials.username\">\n\t\t</md-input-container>\n\t\t<md-input-container class=\"md-accent\">\n\t\t\t <input placeholder=\"Password\" type=\"password\" ng-model=\"$ctrl.credentials.password\">\n\t\t</md-input-container>\n\t\t</md-dialog-content>\n\t\t<md-dialog-actions>\n\t\t\t<md-button type=\"submit\">Sign In</md-button>\n\t\t</md-dialog-actions>\n\t</form>\n<div class=\"error\" ng-if='$ctrl.error'>{{$ctrl.error.reason}}</div>\n";
 
 /***/ },
 /* 49 */
@@ -21009,7 +21005,7 @@
 /* 52 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n\t<h2>Create new account</h2>\n\t<form name=\"auth\" ng-submit=\"$ctrl.authenticate()\">\n\t\t<div>\n\t\t\t<label>\n\t\t\t\tEmail: <input type=\"password\" ng-model=\"$ctrl.credentials.email\">\n\t\t\t</label>\n\t\t</div>\n\t\t<div>\n\t\t\t<label>\n\t\t\t\tUsername: <input ng-model=\"$ctrl.credentials.username\">\n\t\t\t</label>\n\t\t</div>\n\t\t<div>\n\t\t\t<label>\n\t\t\t\tPassword: <input type=\"password\" ng-model=\"$ctrl.credentials.password\">\n\t\t\t</label>\n\t\t</div>\n\n\t\t<button type=\"submit\">Sign Up</button>\n\t</form>\n\t<div class=\"error\" ng-if='$ctrl.error'>{{$ctrl.error.reason}}</div>\n</section>\n";
+	module.exports = "<h2>Create new account</h2>\n\t<form name=\"auth\" ng-submit=\"$ctrl.authenticate()\" layout=\"column\">\n\t\t<md-input-container class=\"md-accent\">\n\t\t\t<input placeholder=\"Email\" ng-model=\"$ctrl.credentials.email\">\n\t\t</md-input-container>\n\t\t<md-input-container class=\"md-accent\">\n\t\t\t<input placeholder=\"Username\" ng-model=\"$ctrl.credentials.username\">\n\t\t</md-input-container>\n\t\t<md-input-container class=\"md-accent\">\n\t\t\t<input placeholder=\"Password\" type=\"password\" ng-model=\"$ctrl.credentials.password\">\n\t\t</md-input-container>\n\t\t</md-dialog-content>\n\t\t<md-dialog-actions>\n\t\t\t<md-button type=\"submit\">Sign Up</md-button>\n\t\t</md-dialog-actions>\n\t</form>\n<div class=\"error\" ng-if='$ctrl.error'>{{$ctrl.error.reason}}</div>\n";
 
 /***/ },
 /* 53 */
@@ -21025,19 +21021,19 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	exports.default = {
-		template: '\n\t<div>\n\t\t<label>\n\t\t\t<input type="radio" ng-model="$ctrl.action" value="signin">\n\t\t\tSign In\n\t\t</label>\n\t\t<label>\n\t\t\t<input type="radio" ng-model="$ctrl.action" value="signup">\n\t\t\tSign Up\n\t\t</label>\n\t</div>\n\t<signin ng-if="$ctrl.action===\'signin\'" success="$ctrl.success()"></signin>\n\t<signup ng-if="$ctrl.action===\'signup\'" success="$ctrl.success()"></signup>\n\t',
-		bindings: {
-			success: '&'
-		},
-		controller: controller
+	  template: '\n\t<md-dialog-content>\n    <md-radio-group ng-model="$ctrl.action" layout="row">\n      <md-radio-button class="md-accent" ng-model="$ctrl.action" value="signin">\n          Signin\n      </md-radio-button>\n      <md-radio-button class="md-accent" ng-model="$ctrl.action" value="signup">\n          Signup\n      </md-radio-button>\n    </md-radio-group>\n\t<signin ng-if="$ctrl.action===\'signin\'" success="$ctrl.success()"></signin>\n\t<signup ng-if="$ctrl.action===\'signup\'" success="$ctrl.success()"></signup>\n  ',
+	  bindings: {
+	    success: '&'
+	  },
+	  controller: controller
 	};
 	
 	
 	function controller() {
-		this.action = 'signin';
+	  this.action = 'signin';
 	}
 
 /***/ },
@@ -21194,7 +21190,7 @@
 /* 63 */
 /***/ function(module, exports) {
 
-	module.exports = "<div ng-class=$ctrl.styles.listAlbums>\n  <h1>Albums</h1>\n  <p>Click on the album name to see the pictures</p>\n<!-- List of albums -->\n  <section id=\"list\">\n      <div class=\"listItem\" ng-repeat=\"album in $ctrl.albums\">\n        <p>\n          <a ui-sref=\"view-album({albumId: album._id, display: 'list'})\">{{album.title}}</a>\n        </p>\n          <md-button ng-click=\"showWarning=!showWarning\">Delete</md-button>\n          <md-button ng-hide=\"showUpdate\" ng-click=\"showUpdate=!showUpdate\">Edit</md-button>\n          <md-button ng-show=\"showUpdate\" ng-click=\"showUpdate=false\">Cancel Edit</md-button>\n          <!-- Warning message when deleting an album -->\n          <div ng-show=\"showWarning\">\n            <p class=\"confirmMessage\">Are you sure?</p>\n              <md-button ng-click=\"$ctrl.remove(album._id)\">Confirm Delete</md-button>\n              <md-button ng-click=\"showWarning=false\">Keep Album</md-button>\n          </div>\n          <!-- Update album form -->\n          <div ng-show=\"showUpdate\">\n            <update-album-form update=\"$ctrl.update\" info=\"album\"></update-album-form>\n          </div>\n      </div>\n  </section>\n\n<!-- Add album form -->\n  <section>\n    <add-album-form add=$ctrl.add></add-album-form>\n  </section>\n</div>\n";
+	module.exports = "<div ng-class=$ctrl.styles.listAlbums>\n  <h1>Albums</h1>\n  <p>Click on the album name to see the pictures</p>\n<!-- List of albums -->\n  <section id=\"list\">\n      <div class=\"listItem\" ng-repeat=\"album in $ctrl.albums\">\n        <p>\n          <a ui-sref=\"view-album({albumId: album._id, display: 'list'})\">{{album.title}}</a>\n        </p>\n          <md-button ng-click=\"showWarning=!showWarning\">Delete</md-button>\n          <md-button ng-hide=\"showUpdate\" ng-click=\"showUpdate=!showUpdate\">Edit</md-button>\n          <md-button ng-show=\"showUpdate\" ng-click=\"showUpdate=false\">Cancel Edit</md-button>\n          <!-- Warning message when deleting an album -->\n          <div ng-show=\"showWarning\">\n            <p class=\"warningText\">Are you sure?</p>\n              <md-button class=\"md-warn\" ng-click=\"$ctrl.remove(album._id)\">Confirm Delete</md-button>\n              <md-button ng-click=\"showWarning=false\">Keep Album</md-button>\n          </div>\n          <!-- Update album form -->\n          <div ng-show=\"showUpdate\">\n            <update-album-form update=\"$ctrl.update\" info=\"album\"></update-album-form>\n          </div>\n      </div>\n  </section>\n\n<!-- Add album form -->\n  <section>\n    <add-album-form add=$ctrl.add></add-album-form>\n  </section>\n</div>\n";
 
 /***/ },
 /* 64 */
@@ -21294,7 +21290,7 @@
 /* 69 */
 /***/ function(module, exports) {
 
-	module.exports = "<div ng-class=\"$ctrl.styles.welcome\">\n  <h1>Photo Album Application</h1>\n  <h2><a href=\"http://whatamidoingwithmy.life\" target=\"_blank\"/>By Danielle Heberling</a></h2>\n  <p>\n    This is an application where users can create, read, update, and delete both photo albums and individual photos within the album.\n  </p>\n  <div>\n    <p>\n      Full stack JavaScript application using MongoDB, Express, AngularJS, Node.js\n    </p>\n    <h3>\n      <a href=\"https://github.com/deeheber/image-gallery\">Source code</a>\n    </h3>\n  </div>\n  <p>\n    I hope you enjoy!\n  </p>\n</div>\n";
+	module.exports = "<div ng-class=\"$ctrl.styles.welcome\">\n  <h1>Photo Album Application</h1>\n  <h2><a href=\"http://whatamidoingwithmy.life\" target=\"_blank\"/>By Danielle Heberling</a></h2>\n  <p>\n    This is an application where users can create, read, update, and delete both photo albums and individual photos within the album.\n  </p>\n  <div>\n    <p>\n      Full stack JavaScript application using MongoDB, Express, AngularJS, Node.js\n    </p>\n    <h3>\n      <a href=\"https://github.com/deeheber/image-gallery/tree/lab7\" target=\"_blank\">Source code</a>\n    </h3>\n  </div>\n  <p>\n    I hope you enjoy!\n  </p>\n</div>\n";
 
 /***/ },
 /* 70 */
@@ -33685,6 +33681,749 @@
 /* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	__webpack_require__(85);
+	module.exports = 'ngMessages';
+
+/***/ },
+/* 85 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	/**
+	 * @license AngularJS v1.5.8
+	 * (c) 2010-2016 Google, Inc. http://angularjs.org
+	 * License: MIT
+	 */
+	(function (window, angular) {
+	  'use strict';
+	
+	  var forEach;
+	  var isArray;
+	  var isString;
+	  var jqLite;
+	
+	  /**
+	   * @ngdoc module
+	   * @name ngMessages
+	   * @description
+	   *
+	   * The `ngMessages` module provides enhanced support for displaying messages within templates
+	   * (typically within forms or when rendering message objects that return key/value data).
+	   * Instead of relying on JavaScript code and/or complex ng-if statements within your form template to
+	   * show and hide error messages specific to the state of an input field, the `ngMessages` and
+	   * `ngMessage` directives are designed to handle the complexity, inheritance and priority
+	   * sequencing based on the order of how the messages are defined in the template.
+	   *
+	   * Currently, the ngMessages module only contains the code for the `ngMessages`, `ngMessagesInclude`
+	   * `ngMessage` and `ngMessageExp` directives.
+	   *
+	   * # Usage
+	   * The `ngMessages` directive allows keys in a key/value collection to be associated with a child element
+	   * (or 'message') that will show or hide based on the truthiness of that key's value in the collection. A common use
+	   * case for `ngMessages` is to display error messages for inputs using the `$error` object exposed by the
+	   * {@link ngModel ngModel} directive.
+	   *
+	   * The child elements of the `ngMessages` directive are matched to the collection keys by a `ngMessage` or
+	   * `ngMessageExp` directive. The value of these attributes must match a key in the collection that is provided by
+	   * the `ngMessages` directive.
+	   *
+	   * Consider the following example, which illustrates a typical use case of `ngMessages`. Within the form `myForm` we
+	   * have a text input named `myField` which is bound to the scope variable `field` using the {@link ngModel ngModel}
+	   * directive.
+	   *
+	   * The `myField` field is a required input of type `email` with a maximum length of 15 characters.
+	   *
+	   * ```html
+	   * <form name="myForm">
+	   *   <label>
+	   *     Enter text:
+	   *     <input type="email" ng-model="field" name="myField" required maxlength="15" />
+	   *   </label>
+	   *   <div ng-messages="myForm.myField.$error" role="alert">
+	   *     <div ng-message="required">Please enter a value for this field.</div>
+	   *     <div ng-message="email">This field must be a valid email address.</div>
+	   *     <div ng-message="maxlength">This field can be at most 15 characters long.</div>
+	   *   </div>
+	   * </form>
+	   * ```
+	   *
+	   * In order to show error messages corresponding to `myField` we first create an element with an `ngMessages` attribute
+	   * set to the `$error` object owned by the `myField` input in our `myForm` form.
+	   *
+	   * Within this element we then create separate elements for each of the possible errors that `myField` could have.
+	   * The `ngMessage` attribute is used to declare which element(s) will appear for which error - for example,
+	   * setting `ng-message="required"` specifies that this particular element should be displayed when there
+	   * is no value present for the required field `myField` (because the key `required` will be `true` in the object
+	   * `myForm.myField.$error`).
+	   *
+	   * ### Message order
+	   *
+	   * By default, `ngMessages` will only display one message for a particular key/value collection at any time. If more
+	   * than one message (or error) key is currently true, then which message is shown is determined by the order of messages
+	   * in the HTML template code (messages declared first are prioritised). This mechanism means the developer does not have
+	   * to prioritise messages using custom JavaScript code.
+	   *
+	   * Given the following error object for our example (which informs us that the field `myField` currently has both the
+	   * `required` and `email` errors):
+	   *
+	   * ```javascript
+	   * <!-- keep in mind that ngModel automatically sets these error flags -->
+	   * myField.$error = { required : true, email: true, maxlength: false };
+	   * ```
+	   * The `required` message will be displayed to the user since it appears before the `email` message in the DOM.
+	   * Once the user types a single character, the `required` message will disappear (since the field now has a value)
+	   * but the `email` message will be visible because it is still applicable.
+	   *
+	   * ### Displaying multiple messages at the same time
+	   *
+	   * While `ngMessages` will by default only display one error element at a time, the `ng-messages-multiple` attribute can
+	   * be applied to the `ngMessages` container element to cause it to display all applicable error messages at once:
+	   *
+	   * ```html
+	   * <!-- attribute-style usage -->
+	   * <div ng-messages="myForm.myField.$error" ng-messages-multiple>...</div>
+	   *
+	   * <!-- element-style usage -->
+	   * <ng-messages for="myForm.myField.$error" multiple>...</ng-messages>
+	   * ```
+	   *
+	   * ## Reusing and Overriding Messages
+	   * In addition to prioritization, ngMessages also allows for including messages from a remote or an inline
+	   * template. This allows for generic collection of messages to be reused across multiple parts of an
+	   * application.
+	   *
+	   * ```html
+	   * <script type="text/ng-template" id="error-messages">
+	   *   <div ng-message="required">This field is required</div>
+	   *   <div ng-message="minlength">This field is too short</div>
+	   * </script>
+	   *
+	   * <div ng-messages="myForm.myField.$error" role="alert">
+	   *   <div ng-messages-include="error-messages"></div>
+	   * </div>
+	   * ```
+	   *
+	   * However, including generic messages may not be useful enough to match all input fields, therefore,
+	   * `ngMessages` provides the ability to override messages defined in the remote template by redefining
+	   * them within the directive container.
+	   *
+	   * ```html
+	   * <!-- a generic template of error messages known as "my-custom-messages" -->
+	   * <script type="text/ng-template" id="my-custom-messages">
+	   *   <div ng-message="required">This field is required</div>
+	   *   <div ng-message="minlength">This field is too short</div>
+	   * </script>
+	   *
+	   * <form name="myForm">
+	   *   <label>
+	   *     Email address
+	   *     <input type="email"
+	   *            id="email"
+	   *            name="myEmail"
+	   *            ng-model="email"
+	   *            minlength="5"
+	   *            required />
+	   *   </label>
+	   *   <!-- any ng-message elements that appear BEFORE the ng-messages-include will
+	   *        override the messages present in the ng-messages-include template -->
+	   *   <div ng-messages="myForm.myEmail.$error" role="alert">
+	   *     <!-- this required message has overridden the template message -->
+	   *     <div ng-message="required">You did not enter your email address</div>
+	   *
+	   *     <!-- this is a brand new message and will appear last in the prioritization -->
+	   *     <div ng-message="email">Your email address is invalid</div>
+	   *
+	   *     <!-- and here are the generic error messages -->
+	   *     <div ng-messages-include="my-custom-messages"></div>
+	   *   </div>
+	   * </form>
+	   * ```
+	   *
+	   * In the example HTML code above the message that is set on required will override the corresponding
+	   * required message defined within the remote template. Therefore, with particular input fields (such
+	   * email addresses, date fields, autocomplete inputs, etc...), specialized error messages can be applied
+	   * while more generic messages can be used to handle other, more general input errors.
+	   *
+	   * ## Dynamic Messaging
+	   * ngMessages also supports using expressions to dynamically change key values. Using arrays and
+	   * repeaters to list messages is also supported. This means that the code below will be able to
+	   * fully adapt itself and display the appropriate message when any of the expression data changes:
+	   *
+	   * ```html
+	   * <form name="myForm">
+	   *   <label>
+	   *     Email address
+	   *     <input type="email"
+	   *            name="myEmail"
+	   *            ng-model="email"
+	   *            minlength="5"
+	   *            required />
+	   *   </label>
+	   *   <div ng-messages="myForm.myEmail.$error" role="alert">
+	   *     <div ng-message="required">You did not enter your email address</div>
+	   *     <div ng-repeat="errorMessage in errorMessages">
+	   *       <!-- use ng-message-exp for a message whose key is given by an expression -->
+	   *       <div ng-message-exp="errorMessage.type">{{ errorMessage.text }}</div>
+	   *     </div>
+	   *   </div>
+	   * </form>
+	   * ```
+	   *
+	   * The `errorMessage.type` expression can be a string value or it can be an array so
+	   * that multiple errors can be associated with a single error message:
+	   *
+	   * ```html
+	   *   <label>
+	   *     Email address
+	   *     <input type="email"
+	   *            ng-model="data.email"
+	   *            name="myEmail"
+	   *            ng-minlength="5"
+	   *            ng-maxlength="100"
+	   *            required />
+	   *   </label>
+	   *   <div ng-messages="myForm.myEmail.$error" role="alert">
+	   *     <div ng-message-exp="'required'">You did not enter your email address</div>
+	   *     <div ng-message-exp="['minlength', 'maxlength']">
+	   *       Your email must be between 5 and 100 characters long
+	   *     </div>
+	   *   </div>
+	   * ```
+	   *
+	   * Feel free to use other structural directives such as ng-if and ng-switch to further control
+	   * what messages are active and when. Be careful, if you place ng-message on the same element
+	   * as these structural directives, Angular may not be able to determine if a message is active
+	   * or not. Therefore it is best to place the ng-message on a child element of the structural
+	   * directive.
+	   *
+	   * ```html
+	   * <div ng-messages="myForm.myEmail.$error" role="alert">
+	   *   <div ng-if="showRequiredError">
+	   *     <div ng-message="required">Please enter something</div>
+	   *   </div>
+	   * </div>
+	   * ```
+	   *
+	   * ## Animations
+	   * If the `ngAnimate` module is active within the application then the `ngMessages`, `ngMessage` and
+	   * `ngMessageExp` directives will trigger animations whenever any messages are added and removed from
+	   * the DOM by the `ngMessages` directive.
+	   *
+	   * Whenever the `ngMessages` directive contains one or more visible messages then the `.ng-active` CSS
+	   * class will be added to the element. The `.ng-inactive` CSS class will be applied when there are no
+	   * messages present. Therefore, CSS transitions and keyframes as well as JavaScript animations can
+	   * hook into the animations whenever these classes are added/removed.
+	   *
+	   * Let's say that our HTML code for our messages container looks like so:
+	   *
+	   * ```html
+	   * <div ng-messages="myMessages" class="my-messages" role="alert">
+	   *   <div ng-message="alert" class="some-message">...</div>
+	   *   <div ng-message="fail" class="some-message">...</div>
+	   * </div>
+	   * ```
+	   *
+	   * Then the CSS animation code for the message container looks like so:
+	   *
+	   * ```css
+	   * .my-messages {
+	   *   transition:1s linear all;
+	   * }
+	   * .my-messages.ng-active {
+	   *   // messages are visible
+	   * }
+	   * .my-messages.ng-inactive {
+	   *   // messages are hidden
+	   * }
+	   * ```
+	   *
+	   * Whenever an inner message is attached (becomes visible) or removed (becomes hidden) then the enter
+	   * and leave animation is triggered for each particular element bound to the `ngMessage` directive.
+	   *
+	   * Therefore, the CSS code for the inner messages looks like so:
+	   *
+	   * ```css
+	   * .some-message {
+	   *   transition:1s linear all;
+	   * }
+	   *
+	   * .some-message.ng-enter {}
+	   * .some-message.ng-enter.ng-enter-active {}
+	   *
+	   * .some-message.ng-leave {}
+	   * .some-message.ng-leave.ng-leave-active {}
+	   * ```
+	   *
+	   * {@link ngAnimate Click here} to learn how to use JavaScript animations or to learn more about ngAnimate.
+	   */
+	  angular.module('ngMessages', [], function initAngularHelpers() {
+	    // Access helpers from angular core.
+	    // Do it inside a `config` block to ensure `window.angular` is available.
+	    forEach = angular.forEach;
+	    isArray = angular.isArray;
+	    isString = angular.isString;
+	    jqLite = angular.element;
+	  })
+	
+	  /**
+	   * @ngdoc directive
+	   * @module ngMessages
+	   * @name ngMessages
+	   * @restrict AE
+	   *
+	   * @description
+	   * `ngMessages` is a directive that is designed to show and hide messages based on the state
+	   * of a key/value object that it listens on. The directive itself complements error message
+	   * reporting with the `ngModel` $error object (which stores a key/value state of validation errors).
+	   *
+	   * `ngMessages` manages the state of internal messages within its container element. The internal
+	   * messages use the `ngMessage` directive and will be inserted/removed from the page depending
+	   * on if they're present within the key/value object. By default, only one message will be displayed
+	   * at a time and this depends on the prioritization of the messages within the template. (This can
+	   * be changed by using the `ng-messages-multiple` or `multiple` attribute on the directive container.)
+	   *
+	   * A remote template can also be used to promote message reusability and messages can also be
+	   * overridden.
+	   *
+	   * {@link module:ngMessages Click here} to learn more about `ngMessages` and `ngMessage`.
+	   *
+	   * @usage
+	   * ```html
+	   * <!-- using attribute directives -->
+	   * <ANY ng-messages="expression" role="alert">
+	   *   <ANY ng-message="stringValue">...</ANY>
+	   *   <ANY ng-message="stringValue1, stringValue2, ...">...</ANY>
+	   *   <ANY ng-message-exp="expressionValue">...</ANY>
+	   * </ANY>
+	   *
+	   * <!-- or by using element directives -->
+	   * <ng-messages for="expression" role="alert">
+	   *   <ng-message when="stringValue">...</ng-message>
+	   *   <ng-message when="stringValue1, stringValue2, ...">...</ng-message>
+	   *   <ng-message when-exp="expressionValue">...</ng-message>
+	   * </ng-messages>
+	   * ```
+	   *
+	   * @param {string} ngMessages an angular expression evaluating to a key/value object
+	   *                 (this is typically the $error object on an ngModel instance).
+	   * @param {string=} ngMessagesMultiple|multiple when set, all messages will be displayed with true
+	   *
+	   * @example
+	   * <example name="ngMessages-directive" module="ngMessagesExample"
+	   *          deps="angular-messages.js"
+	   *          animations="true" fixBase="true">
+	   *   <file name="index.html">
+	   *     <form name="myForm">
+	   *       <label>
+	   *         Enter your name:
+	   *         <input type="text"
+	   *                name="myName"
+	   *                ng-model="name"
+	   *                ng-minlength="5"
+	   *                ng-maxlength="20"
+	   *                required />
+	   *       </label>
+	   *       <pre>myForm.myName.$error = {{ myForm.myName.$error | json }}</pre>
+	   *
+	   *       <div ng-messages="myForm.myName.$error" style="color:maroon" role="alert">
+	   *         <div ng-message="required">You did not enter a field</div>
+	   *         <div ng-message="minlength">Your field is too short</div>
+	   *         <div ng-message="maxlength">Your field is too long</div>
+	   *       </div>
+	   *     </form>
+	   *   </file>
+	   *   <file name="script.js">
+	   *     angular.module('ngMessagesExample', ['ngMessages']);
+	   *   </file>
+	   * </example>
+	   */
+	  .directive('ngMessages', ['$animate', function ($animate) {
+	    var ACTIVE_CLASS = 'ng-active';
+	    var INACTIVE_CLASS = 'ng-inactive';
+	
+	    return {
+	      require: 'ngMessages',
+	      restrict: 'AE',
+	      controller: ['$element', '$scope', '$attrs', function ($element, $scope, $attrs) {
+	        var ctrl = this;
+	        var latestKey = 0;
+	        var nextAttachId = 0;
+	
+	        this.getAttachId = function getAttachId() {
+	          return nextAttachId++;
+	        };
+	
+	        var messages = this.messages = {};
+	        var renderLater, cachedCollection;
+	
+	        this.render = function (collection) {
+	          collection = collection || {};
+	
+	          renderLater = false;
+	          cachedCollection = collection;
+	
+	          // this is true if the attribute is empty or if the attribute value is truthy
+	          var multiple = isAttrTruthy($scope, $attrs.ngMessagesMultiple) || isAttrTruthy($scope, $attrs.multiple);
+	
+	          var unmatchedMessages = [];
+	          var matchedKeys = {};
+	          var messageItem = ctrl.head;
+	          var messageFound = false;
+	          var totalMessages = 0;
+	
+	          // we use != instead of !== to allow for both undefined and null values
+	          while (messageItem != null) {
+	            totalMessages++;
+	            var messageCtrl = messageItem.message;
+	
+	            var messageUsed = false;
+	            if (!messageFound) {
+	              forEach(collection, function (value, key) {
+	                if (!messageUsed && truthy(value) && messageCtrl.test(key)) {
+	                  // this is to prevent the same error name from showing up twice
+	                  if (matchedKeys[key]) return;
+	                  matchedKeys[key] = true;
+	
+	                  messageUsed = true;
+	                  messageCtrl.attach();
+	                }
+	              });
+	            }
+	
+	            if (messageUsed) {
+	              // unless we want to display multiple messages then we should
+	              // set a flag here to avoid displaying the next message in the list
+	              messageFound = !multiple;
+	            } else {
+	              unmatchedMessages.push(messageCtrl);
+	            }
+	
+	            messageItem = messageItem.next;
+	          }
+	
+	          forEach(unmatchedMessages, function (messageCtrl) {
+	            messageCtrl.detach();
+	          });
+	
+	          unmatchedMessages.length !== totalMessages ? $animate.setClass($element, ACTIVE_CLASS, INACTIVE_CLASS) : $animate.setClass($element, INACTIVE_CLASS, ACTIVE_CLASS);
+	        };
+	
+	        $scope.$watchCollection($attrs.ngMessages || $attrs['for'], ctrl.render);
+	
+	        // If the element is destroyed, proactively destroy all the currently visible messages
+	        $element.on('$destroy', function () {
+	          forEach(messages, function (item) {
+	            item.message.detach();
+	          });
+	        });
+	
+	        this.reRender = function () {
+	          if (!renderLater) {
+	            renderLater = true;
+	            $scope.$evalAsync(function () {
+	              if (renderLater) {
+	                cachedCollection && ctrl.render(cachedCollection);
+	              }
+	            });
+	          }
+	        };
+	
+	        this.register = function (comment, messageCtrl) {
+	          var nextKey = latestKey.toString();
+	          messages[nextKey] = {
+	            message: messageCtrl
+	          };
+	          insertMessageNode($element[0], comment, nextKey);
+	          comment.$$ngMessageNode = nextKey;
+	          latestKey++;
+	
+	          ctrl.reRender();
+	        };
+	
+	        this.deregister = function (comment) {
+	          var key = comment.$$ngMessageNode;
+	          delete comment.$$ngMessageNode;
+	          removeMessageNode($element[0], comment, key);
+	          delete messages[key];
+	          ctrl.reRender();
+	        };
+	
+	        function findPreviousMessage(parent, comment) {
+	          var prevNode = comment;
+	          var parentLookup = [];
+	
+	          while (prevNode && prevNode !== parent) {
+	            var prevKey = prevNode.$$ngMessageNode;
+	            if (prevKey && prevKey.length) {
+	              return messages[prevKey];
+	            }
+	
+	            // dive deeper into the DOM and examine its children for any ngMessage
+	            // comments that may be in an element that appears deeper in the list
+	            if (prevNode.childNodes.length && parentLookup.indexOf(prevNode) === -1) {
+	              parentLookup.push(prevNode);
+	              prevNode = prevNode.childNodes[prevNode.childNodes.length - 1];
+	            } else if (prevNode.previousSibling) {
+	              prevNode = prevNode.previousSibling;
+	            } else {
+	              prevNode = prevNode.parentNode;
+	              parentLookup.push(prevNode);
+	            }
+	          }
+	        }
+	
+	        function insertMessageNode(parent, comment, key) {
+	          var messageNode = messages[key];
+	          if (!ctrl.head) {
+	            ctrl.head = messageNode;
+	          } else {
+	            var match = findPreviousMessage(parent, comment);
+	            if (match) {
+	              messageNode.next = match.next;
+	              match.next = messageNode;
+	            } else {
+	              messageNode.next = ctrl.head;
+	              ctrl.head = messageNode;
+	            }
+	          }
+	        }
+	
+	        function removeMessageNode(parent, comment, key) {
+	          var messageNode = messages[key];
+	
+	          var match = findPreviousMessage(parent, comment);
+	          if (match) {
+	            match.next = messageNode.next;
+	          } else {
+	            ctrl.head = messageNode.next;
+	          }
+	        }
+	      }]
+	    };
+	
+	    function isAttrTruthy(scope, attr) {
+	      return isString(attr) && attr.length === 0 || //empty attribute
+	      truthy(scope.$eval(attr));
+	    }
+	
+	    function truthy(val) {
+	      return isString(val) ? val.length : !!val;
+	    }
+	  }])
+	
+	  /**
+	   * @ngdoc directive
+	   * @name ngMessagesInclude
+	   * @restrict AE
+	   * @scope
+	   *
+	   * @description
+	   * `ngMessagesInclude` is a directive with the purpose to import existing ngMessage template
+	   * code from a remote template and place the downloaded template code into the exact spot
+	   * that the ngMessagesInclude directive is placed within the ngMessages container. This allows
+	   * for a series of pre-defined messages to be reused and also allows for the developer to
+	   * determine what messages are overridden due to the placement of the ngMessagesInclude directive.
+	   *
+	   * @usage
+	   * ```html
+	   * <!-- using attribute directives -->
+	   * <ANY ng-messages="expression" role="alert">
+	   *   <ANY ng-messages-include="remoteTplString">...</ANY>
+	   * </ANY>
+	   *
+	   * <!-- or by using element directives -->
+	   * <ng-messages for="expression" role="alert">
+	   *   <ng-messages-include src="expressionValue1">...</ng-messages-include>
+	   * </ng-messages>
+	   * ```
+	   *
+	   * {@link module:ngMessages Click here} to learn more about `ngMessages` and `ngMessage`.
+	   *
+	   * @param {string} ngMessagesInclude|src a string value corresponding to the remote template.
+	   */
+	  .directive('ngMessagesInclude', ['$templateRequest', '$document', '$compile', function ($templateRequest, $document, $compile) {
+	
+	    return {
+	      restrict: 'AE',
+	      require: '^^ngMessages', // we only require this for validation sake
+	      link: function link($scope, element, attrs) {
+	        var src = attrs.ngMessagesInclude || attrs.src;
+	        $templateRequest(src).then(function (html) {
+	          if ($scope.$$destroyed) return;
+	
+	          if (isString(html) && !html.trim()) {
+	            // Empty template - nothing to compile
+	            replaceElementWithMarker(element, src);
+	          } else {
+	            // Non-empty template - compile and link
+	            $compile(html)($scope, function (contents) {
+	              element.after(contents);
+	              replaceElementWithMarker(element, src);
+	            });
+	          }
+	        });
+	      }
+	    };
+	
+	    // Helpers
+	    function replaceElementWithMarker(element, src) {
+	      // A comment marker is placed for debugging purposes
+	      var comment = $compile.$$createComment ? $compile.$$createComment('ngMessagesInclude', src) : $document[0].createComment(' ngMessagesInclude: ' + src + ' ');
+	      var marker = jqLite(comment);
+	      element.after(marker);
+	
+	      // Don't pollute the DOM anymore by keeping an empty directive element
+	      element.remove();
+	    }
+	  }])
+	
+	  /**
+	   * @ngdoc directive
+	   * @name ngMessage
+	   * @restrict AE
+	   * @scope
+	   *
+	   * @description
+	   * `ngMessage` is a directive with the purpose to show and hide a particular message.
+	   * For `ngMessage` to operate, a parent `ngMessages` directive on a parent DOM element
+	   * must be situated since it determines which messages are visible based on the state
+	   * of the provided key/value map that `ngMessages` listens on.
+	   *
+	   * More information about using `ngMessage` can be found in the
+	   * {@link module:ngMessages `ngMessages` module documentation}.
+	   *
+	   * @usage
+	   * ```html
+	   * <!-- using attribute directives -->
+	   * <ANY ng-messages="expression" role="alert">
+	   *   <ANY ng-message="stringValue">...</ANY>
+	   *   <ANY ng-message="stringValue1, stringValue2, ...">...</ANY>
+	   * </ANY>
+	   *
+	   * <!-- or by using element directives -->
+	   * <ng-messages for="expression" role="alert">
+	   *   <ng-message when="stringValue">...</ng-message>
+	   *   <ng-message when="stringValue1, stringValue2, ...">...</ng-message>
+	   * </ng-messages>
+	   * ```
+	   *
+	   * @param {expression} ngMessage|when a string value corresponding to the message key.
+	   */
+	  .directive('ngMessage', ngMessageDirectiveFactory())
+	
+	  /**
+	   * @ngdoc directive
+	   * @name ngMessageExp
+	   * @restrict AE
+	   * @priority 1
+	   * @scope
+	   *
+	   * @description
+	   * `ngMessageExp` is a directive with the purpose to show and hide a particular message.
+	   * For `ngMessageExp` to operate, a parent `ngMessages` directive on a parent DOM element
+	   * must be situated since it determines which messages are visible based on the state
+	   * of the provided key/value map that `ngMessages` listens on.
+	   *
+	   * @usage
+	   * ```html
+	   * <!-- using attribute directives -->
+	   * <ANY ng-messages="expression">
+	   *   <ANY ng-message-exp="expressionValue">...</ANY>
+	   * </ANY>
+	   *
+	   * <!-- or by using element directives -->
+	   * <ng-messages for="expression">
+	   *   <ng-message when-exp="expressionValue">...</ng-message>
+	   * </ng-messages>
+	   * ```
+	   *
+	   * {@link module:ngMessages Click here} to learn more about `ngMessages` and `ngMessage`.
+	   *
+	   * @param {expression} ngMessageExp|whenExp an expression value corresponding to the message key.
+	   */
+	  .directive('ngMessageExp', ngMessageDirectiveFactory());
+	
+	  function ngMessageDirectiveFactory() {
+	    return ['$animate', function ($animate) {
+	      return {
+	        restrict: 'AE',
+	        transclude: 'element',
+	        priority: 1, // must run before ngBind, otherwise the text is set on the comment
+	        terminal: true,
+	        require: '^^ngMessages',
+	        link: function link(scope, element, attrs, ngMessagesCtrl, $transclude) {
+	          var commentNode = element[0];
+	
+	          var records;
+	          var staticExp = attrs.ngMessage || attrs.when;
+	          var dynamicExp = attrs.ngMessageExp || attrs.whenExp;
+	          var assignRecords = function assignRecords(items) {
+	            records = items ? isArray(items) ? items : items.split(/[\s,]+/) : null;
+	            ngMessagesCtrl.reRender();
+	          };
+	
+	          if (dynamicExp) {
+	            assignRecords(scope.$eval(dynamicExp));
+	            scope.$watchCollection(dynamicExp, assignRecords);
+	          } else {
+	            assignRecords(staticExp);
+	          }
+	
+	          var currentElement, messageCtrl;
+	          ngMessagesCtrl.register(commentNode, messageCtrl = {
+	            test: function test(name) {
+	              return contains(records, name);
+	            },
+	            attach: function attach() {
+	              if (!currentElement) {
+	                $transclude(function (elm, newScope) {
+	                  $animate.enter(elm, null, element);
+	                  currentElement = elm;
+	
+	                  // Each time we attach this node to a message we get a new id that we can match
+	                  // when we are destroying the node later.
+	                  var $$attachId = currentElement.$$attachId = ngMessagesCtrl.getAttachId();
+	
+	                  // in the event that the element or a parent element is destroyed
+	                  // by another structural directive then it's time
+	                  // to deregister the message from the controller
+	                  currentElement.on('$destroy', function () {
+	                    if (currentElement && currentElement.$$attachId === $$attachId) {
+	                      ngMessagesCtrl.deregister(commentNode);
+	                      messageCtrl.detach();
+	                    }
+	                    newScope.$destroy();
+	                  });
+	                });
+	              }
+	            },
+	            detach: function detach() {
+	              if (currentElement) {
+	                var elm = currentElement;
+	                currentElement = null;
+	                $animate.leave(elm);
+	              }
+	            }
+	          });
+	        }
+	      };
+	    }];
+	
+	    function contains(collection, key) {
+	      if (collection) {
+	        return isArray(collection) ? collection.indexOf(key) >= 0 : collection.hasOwnProperty(key);
+	      }
+	    }
+	  }
+	})(window, window.angular);
+
+/***/ },
+/* 86 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module) {'use strict';
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
@@ -33989,903 +34728,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
 
 /***/ },
-/* 85 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
-	
-	/*
-	 * ngDialog - easy modals and popup windows
-	 * http://github.com/likeastore/ngDialog
-	 * (c) 2013-2015 MIT License, https://likeastore.com
-	 */
-	
-	(function (root, factory) {
-	    if (typeof module !== 'undefined' && module.exports) {
-	        // CommonJS
-	        if (typeof angular === 'undefined') {
-	            factory(__webpack_require__(1));
-	        } else {
-	            factory(angular);
-	        }
-	        module.exports = 'ngDialog';
-	    } else if (true) {
-	        // AMD
-	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	    } else {
-	        // Global Variables
-	        factory(root.angular);
-	    }
-	})(undefined, function (angular) {
-	    'use strict';
-	
-	    var m = angular.module('ngDialog', []);
-	
-	    var $el = angular.element;
-	    var isDef = angular.isDefined;
-	    var style = (document.body || document.documentElement).style;
-	    var animationEndSupport = isDef(style.animation) || isDef(style.WebkitAnimation) || isDef(style.MozAnimation) || isDef(style.MsAnimation) || isDef(style.OAnimation);
-	    var animationEndEvent = 'animationend webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend';
-	    var focusableElementSelector = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]';
-	    var disabledAnimationClass = 'ngdialog-disabled-animation';
-	    var forceElementsReload = { html: false, body: false };
-	    var scopes = {};
-	    var openIdStack = [];
-	    var keydownIsBound = false;
-	    var openOnePerName = false;
-	
-	    m.provider('ngDialog', function () {
-	        var defaults = this.defaults = {
-	            className: 'ngdialog-theme-default',
-	            appendClassName: '',
-	            disableAnimation: false,
-	            plain: false,
-	            showClose: true,
-	            closeByDocument: true,
-	            closeByEscape: true,
-	            closeByNavigation: false,
-	            appendTo: false,
-	            preCloseCallback: false,
-	            overlay: true,
-	            cache: true,
-	            trapFocus: true,
-	            preserveFocus: true,
-	            ariaAuto: true,
-	            ariaRole: null,
-	            ariaLabelledById: null,
-	            ariaLabelledBySelector: null,
-	            ariaDescribedById: null,
-	            ariaDescribedBySelector: null,
-	            bodyClassName: 'ngdialog-open',
-	            width: null,
-	            height: null
-	        };
-	
-	        this.setForceHtmlReload = function (_useIt) {
-	            forceElementsReload.html = _useIt || false;
-	        };
-	
-	        this.setForceBodyReload = function (_useIt) {
-	            forceElementsReload.body = _useIt || false;
-	        };
-	
-	        this.setDefaults = function (newDefaults) {
-	            angular.extend(defaults, newDefaults);
-	        };
-	
-	        this.setOpenOnePerName = function (isOpenOne) {
-	            openOnePerName = isOpenOne || false;
-	        };
-	
-	        var globalID = 0,
-	            dialogsCount = 0,
-	            closeByDocumentHandler,
-	            defers = {};
-	
-	        this.$get = ['$document', '$templateCache', '$compile', '$q', '$http', '$rootScope', '$timeout', '$window', '$controller', '$injector', function ($document, $templateCache, $compile, $q, $http, $rootScope, $timeout, $window, $controller, $injector) {
-	            var $elements = [];
-	
-	            var privateMethods = {
-	                onDocumentKeydown: function onDocumentKeydown(event) {
-	                    if (event.keyCode === 27) {
-	                        publicMethods.close('$escape');
-	                    }
-	                },
-	
-	                activate: function activate($dialog) {
-	                    var options = $dialog.data('$ngDialogOptions');
-	
-	                    if (options.trapFocus) {
-	                        $dialog.on('keydown', privateMethods.onTrapFocusKeydown);
-	
-	                        // Catch rogue changes (eg. after unfocusing everything by clicking a non-focusable element)
-	                        $elements.body.on('keydown', privateMethods.onTrapFocusKeydown);
-	                    }
-	                },
-	
-	                deactivate: function deactivate($dialog) {
-	                    $dialog.off('keydown', privateMethods.onTrapFocusKeydown);
-	                    $elements.body.off('keydown', privateMethods.onTrapFocusKeydown);
-	                },
-	
-	                deactivateAll: function deactivateAll(els) {
-	                    angular.forEach(els, function (el) {
-	                        var $dialog = angular.element(el);
-	                        privateMethods.deactivate($dialog);
-	                    });
-	                },
-	
-	                setBodyPadding: function setBodyPadding(width) {
-	                    var originalBodyPadding = parseInt($elements.body.css('padding-right') || 0, 10);
-	                    $elements.body.css('padding-right', originalBodyPadding + width + 'px');
-	                    $elements.body.data('ng-dialog-original-padding', originalBodyPadding);
-	                    $rootScope.$broadcast('ngDialog.setPadding', width);
-	                },
-	
-	                resetBodyPadding: function resetBodyPadding() {
-	                    var originalBodyPadding = $elements.body.data('ng-dialog-original-padding');
-	                    if (originalBodyPadding) {
-	                        $elements.body.css('padding-right', originalBodyPadding + 'px');
-	                    } else {
-	                        $elements.body.css('padding-right', '');
-	                    }
-	                    $rootScope.$broadcast('ngDialog.setPadding', 0);
-	                },
-	
-	                performCloseDialog: function performCloseDialog($dialog, value) {
-	                    var options = $dialog.data('$ngDialogOptions');
-	                    var id = $dialog.attr('id');
-	                    var scope = scopes[id];
-	
-	                    if (!scope) {
-	                        // Already closed
-	                        return;
-	                    }
-	
-	                    if (typeof $window.Hammer !== 'undefined') {
-	                        var hammerTime = scope.hammerTime;
-	                        hammerTime.off('tap', closeByDocumentHandler);
-	                        hammerTime.destroy && hammerTime.destroy();
-	                        delete scope.hammerTime;
-	                    } else {
-	                        $dialog.unbind('click');
-	                    }
-	
-	                    if (dialogsCount === 1) {
-	                        $elements.body.unbind('keydown', privateMethods.onDocumentKeydown);
-	                    }
-	
-	                    if (!$dialog.hasClass('ngdialog-closing')) {
-	                        dialogsCount -= 1;
-	                    }
-	
-	                    var previousFocus = $dialog.data('$ngDialogPreviousFocus');
-	                    if (previousFocus && previousFocus.focus) {
-	                        previousFocus.focus();
-	                    }
-	
-	                    $rootScope.$broadcast('ngDialog.closing', $dialog, value);
-	                    dialogsCount = dialogsCount < 0 ? 0 : dialogsCount;
-	                    if (animationEndSupport && !options.disableAnimation) {
-	                        scope.$destroy();
-	                        $dialog.unbind(animationEndEvent).bind(animationEndEvent, function () {
-	                            privateMethods.closeDialogElement($dialog, value);
-	                        }).addClass('ngdialog-closing');
-	                    } else {
-	                        scope.$destroy();
-	                        privateMethods.closeDialogElement($dialog, value);
-	                    }
-	                    if (defers[id]) {
-	                        defers[id].resolve({
-	                            id: id,
-	                            value: value,
-	                            $dialog: $dialog,
-	                            remainingDialogs: dialogsCount
-	                        });
-	                        delete defers[id];
-	                    }
-	                    if (scopes[id]) {
-	                        delete scopes[id];
-	                    }
-	                    openIdStack.splice(openIdStack.indexOf(id), 1);
-	                    if (!openIdStack.length) {
-	                        $elements.body.unbind('keydown', privateMethods.onDocumentKeydown);
-	                        keydownIsBound = false;
-	                    }
-	                },
-	
-	                closeDialogElement: function closeDialogElement($dialog, value) {
-	                    var options = $dialog.data('$ngDialogOptions');
-	                    $dialog.remove();
-	                    if (dialogsCount === 0) {
-	                        $elements.html.removeClass(options.bodyClassName);
-	                        $elements.body.removeClass(options.bodyClassName);
-	                        privateMethods.resetBodyPadding();
-	                    }
-	                    $rootScope.$broadcast('ngDialog.closed', $dialog, value);
-	                },
-	
-	                closeDialog: function closeDialog($dialog, value) {
-	                    var preCloseCallback = $dialog.data('$ngDialogPreCloseCallback');
-	
-	                    if (preCloseCallback && angular.isFunction(preCloseCallback)) {
-	
-	                        var preCloseCallbackResult = preCloseCallback.call($dialog, value);
-	
-	                        if (angular.isObject(preCloseCallbackResult)) {
-	                            if (preCloseCallbackResult.closePromise) {
-	                                preCloseCallbackResult.closePromise.then(function () {
-	                                    privateMethods.performCloseDialog($dialog, value);
-	                                }, function () {
-	                                    return false;
-	                                });
-	                            } else {
-	                                preCloseCallbackResult.then(function () {
-	                                    privateMethods.performCloseDialog($dialog, value);
-	                                }, function () {
-	                                    return false;
-	                                });
-	                            }
-	                        } else if (preCloseCallbackResult !== false) {
-	                            privateMethods.performCloseDialog($dialog, value);
-	                        } else {
-	                            return false;
-	                        }
-	                    } else {
-	                        privateMethods.performCloseDialog($dialog, value);
-	                    }
-	                },
-	
-	                onTrapFocusKeydown: function onTrapFocusKeydown(ev) {
-	                    var el = angular.element(ev.currentTarget);
-	                    var $dialog;
-	
-	                    if (el.hasClass('ngdialog')) {
-	                        $dialog = el;
-	                    } else {
-	                        $dialog = privateMethods.getActiveDialog();
-	
-	                        if ($dialog === null) {
-	                            return;
-	                        }
-	                    }
-	
-	                    var isTab = ev.keyCode === 9;
-	                    var backward = ev.shiftKey === true;
-	
-	                    if (isTab) {
-	                        privateMethods.handleTab($dialog, ev, backward);
-	                    }
-	                },
-	
-	                handleTab: function handleTab($dialog, ev, backward) {
-	                    var focusableElements = privateMethods.getFocusableElements($dialog);
-	
-	                    if (focusableElements.length === 0) {
-	                        if (document.activeElement && document.activeElement.blur) {
-	                            document.activeElement.blur();
-	                        }
-	                        return;
-	                    }
-	
-	                    var currentFocus = document.activeElement;
-	                    var focusIndex = Array.prototype.indexOf.call(focusableElements, currentFocus);
-	
-	                    var isFocusIndexUnknown = focusIndex === -1;
-	                    var isFirstElementFocused = focusIndex === 0;
-	                    var isLastElementFocused = focusIndex === focusableElements.length - 1;
-	
-	                    var cancelEvent = false;
-	
-	                    if (backward) {
-	                        if (isFocusIndexUnknown || isFirstElementFocused) {
-	                            focusableElements[focusableElements.length - 1].focus();
-	                            cancelEvent = true;
-	                        }
-	                    } else {
-	                        if (isFocusIndexUnknown || isLastElementFocused) {
-	                            focusableElements[0].focus();
-	                            cancelEvent = true;
-	                        }
-	                    }
-	
-	                    if (cancelEvent) {
-	                        ev.preventDefault();
-	                        ev.stopPropagation();
-	                    }
-	                },
-	
-	                autoFocus: function autoFocus($dialog) {
-	                    var dialogEl = $dialog[0];
-	
-	                    // Browser's (Chrome 40, Forefix 37, IE 11) don't appear to honor autofocus on the dialog, but we should
-	                    var autoFocusEl = dialogEl.querySelector('*[autofocus]');
-	                    if (autoFocusEl !== null) {
-	                        autoFocusEl.focus();
-	
-	                        if (document.activeElement === autoFocusEl) {
-	                            return;
-	                        }
-	
-	                        // Autofocus element might was display: none, so let's continue
-	                    }
-	
-	                    var focusableElements = privateMethods.getFocusableElements($dialog);
-	
-	                    if (focusableElements.length > 0) {
-	                        focusableElements[0].focus();
-	                        return;
-	                    }
-	
-	                    // We need to focus something for the screen readers to notice the dialog
-	                    var contentElements = privateMethods.filterVisibleElements(dialogEl.querySelectorAll('h1,h2,h3,h4,h5,h6,p,span'));
-	
-	                    if (contentElements.length > 0) {
-	                        var contentElement = contentElements[0];
-	                        $el(contentElement).attr('tabindex', '-1').css('outline', '0');
-	                        contentElement.focus();
-	                    }
-	                },
-	
-	                getFocusableElements: function getFocusableElements($dialog) {
-	                    var dialogEl = $dialog[0];
-	
-	                    var rawElements = dialogEl.querySelectorAll(focusableElementSelector);
-	
-	                    // Ignore untabbable elements, ie. those with tabindex = -1
-	                    var tabbableElements = privateMethods.filterTabbableElements(rawElements);
-	
-	                    return privateMethods.filterVisibleElements(tabbableElements);
-	                },
-	
-	                filterTabbableElements: function filterTabbableElements(els) {
-	                    var tabbableFocusableElements = [];
-	
-	                    for (var i = 0; i < els.length; i++) {
-	                        var el = els[i];
-	
-	                        if ($el(el).attr('tabindex') !== '-1') {
-	                            tabbableFocusableElements.push(el);
-	                        }
-	                    }
-	
-	                    return tabbableFocusableElements;
-	                },
-	
-	                filterVisibleElements: function filterVisibleElements(els) {
-	                    var visibleFocusableElements = [];
-	
-	                    for (var i = 0; i < els.length; i++) {
-	                        var el = els[i];
-	
-	                        if (el.offsetWidth > 0 || el.offsetHeight > 0) {
-	                            visibleFocusableElements.push(el);
-	                        }
-	                    }
-	
-	                    return visibleFocusableElements;
-	                },
-	
-	                getActiveDialog: function getActiveDialog() {
-	                    var dialogs = document.querySelectorAll('.ngdialog');
-	
-	                    if (dialogs.length === 0) {
-	                        return null;
-	                    }
-	
-	                    // TODO: This might be incorrect if there are a mix of open dialogs with different 'appendTo' values
-	                    return $el(dialogs[dialogs.length - 1]);
-	                },
-	
-	                applyAriaAttributes: function applyAriaAttributes($dialog, options) {
-	                    if (options.ariaAuto) {
-	                        if (!options.ariaRole) {
-	                            var detectedRole = privateMethods.getFocusableElements($dialog).length > 0 ? 'dialog' : 'alertdialog';
-	
-	                            options.ariaRole = detectedRole;
-	                        }
-	
-	                        if (!options.ariaLabelledBySelector) {
-	                            options.ariaLabelledBySelector = 'h1,h2,h3,h4,h5,h6';
-	                        }
-	
-	                        if (!options.ariaDescribedBySelector) {
-	                            options.ariaDescribedBySelector = 'article,section,p';
-	                        }
-	                    }
-	
-	                    if (options.ariaRole) {
-	                        $dialog.attr('role', options.ariaRole);
-	                    }
-	
-	                    privateMethods.applyAriaAttribute($dialog, 'aria-labelledby', options.ariaLabelledById, options.ariaLabelledBySelector);
-	
-	                    privateMethods.applyAriaAttribute($dialog, 'aria-describedby', options.ariaDescribedById, options.ariaDescribedBySelector);
-	                },
-	
-	                applyAriaAttribute: function applyAriaAttribute($dialog, attr, id, selector) {
-	                    if (id) {
-	                        $dialog.attr(attr, id);
-	                    }
-	
-	                    if (selector) {
-	                        var dialogId = $dialog.attr('id');
-	
-	                        var firstMatch = $dialog[0].querySelector(selector);
-	
-	                        if (!firstMatch) {
-	                            return;
-	                        }
-	
-	                        var generatedId = dialogId + '-' + attr;
-	
-	                        $el(firstMatch).attr('id', generatedId);
-	
-	                        $dialog.attr(attr, generatedId);
-	
-	                        return generatedId;
-	                    }
-	                },
-	
-	                detectUIRouter: function detectUIRouter() {
-	                    //Detect if ui-router module is installed if not return false
-	                    try {
-	                        angular.module('ui.router');
-	                        return true;
-	                    } catch (err) {
-	                        return false;
-	                    }
-	                },
-	
-	                getRouterLocationEventName: function getRouterLocationEventName() {
-	                    if (privateMethods.detectUIRouter()) {
-	                        return '$stateChangeStart';
-	                    }
-	                    return '$locationChangeStart';
-	                }
-	            };
-	
-	            var publicMethods = {
-	                __PRIVATE__: privateMethods,
-	
-	                /*
-	                 * @param {Object} options:
-	                 * - template {String} - id of ng-template, url for partial, plain string (if enabled)
-	                 * - plain {Boolean} - enable plain string templates, default false
-	                 * - scope {Object}
-	                 * - controller {String}
-	                 * - controllerAs {String}
-	                 * - className {String} - dialog theme class
-	                 * - appendClassName {String} - dialog theme class to be appended to defaults
-	                 * - disableAnimation {Boolean} - set to true to disable animation
-	                 * - showClose {Boolean} - show close button, default true
-	                 * - closeByEscape {Boolean} - default true
-	                 * - closeByDocument {Boolean} - default true
-	                 * - preCloseCallback {String|Function} - user supplied function name/function called before closing dialog (if set)
-	                 * - bodyClassName {String} - class added to body at open dialog
-	                 * @return {Object} dialog
-	                 */
-	                open: function open(opts) {
-	                    var dialogID = null;
-	                    opts = opts || {};
-	                    if (openOnePerName && opts.name) {
-	                        dialogID = opts.name.toLowerCase().replace(/\s/g, '-') + '-dialog';
-	                        if (this.isOpen(dialogID)) {
-	                            return;
-	                        }
-	                    }
-	                    var options = angular.copy(defaults);
-	                    var localID = ++globalID;
-	                    dialogID = dialogID || 'ngdialog' + localID;
-	                    openIdStack.push(dialogID);
-	
-	                    // Merge opts.data with predefined via setDefaults
-	                    if (typeof options.data !== 'undefined') {
-	                        if (typeof opts.data === 'undefined') {
-	                            opts.data = {};
-	                        }
-	                        opts.data = angular.merge(angular.copy(options.data), opts.data);
-	                    }
-	
-	                    angular.extend(options, opts);
-	
-	                    var defer;
-	                    defers[dialogID] = defer = $q.defer();
-	
-	                    var scope;
-	                    scopes[dialogID] = scope = angular.isObject(options.scope) ? options.scope.$new() : $rootScope.$new();
-	
-	                    var $dialog, $dialogParent, $dialogContent;
-	
-	                    var resolve = angular.extend({}, options.resolve);
-	
-	                    angular.forEach(resolve, function (value, key) {
-	                        resolve[key] = angular.isString(value) ? $injector.get(value) : $injector.invoke(value, null, null, key);
-	                    });
-	
-	                    $q.all({
-	                        template: loadTemplate(options.template || options.templateUrl),
-	                        locals: $q.all(resolve)
-	                    }).then(function (setup) {
-	                        var template = setup.template,
-	                            locals = setup.locals;
-	
-	                        if (options.showClose) {
-	                            template += '<div class="ngdialog-close"></div>';
-	                        }
-	
-	                        var hasOverlayClass = options.overlay ? '' : ' ngdialog-no-overlay';
-	                        $dialog = $el('<div id="' + dialogID + '" class="ngdialog' + hasOverlayClass + '"></div>');
-	                        $dialog.html(options.overlay ? '<div class="ngdialog-overlay"></div><div class="ngdialog-content" role="document">' + template + '</div>' : '<div class="ngdialog-content" role="document">' + template + '</div>');
-	
-	                        $dialog.data('$ngDialogOptions', options);
-	
-	                        scope.ngDialogId = dialogID;
-	
-	                        if (options.data && angular.isString(options.data)) {
-	                            var firstLetter = options.data.replace(/^\s*/, '')[0];
-	                            scope.ngDialogData = firstLetter === '{' || firstLetter === '[' ? angular.fromJson(options.data) : new String(options.data);
-	                            scope.ngDialogData.ngDialogId = dialogID;
-	                        } else if (options.data && angular.isObject(options.data)) {
-	                            scope.ngDialogData = options.data;
-	                            scope.ngDialogData.ngDialogId = dialogID;
-	                        }
-	
-	                        if (options.className) {
-	                            $dialog.addClass(options.className);
-	                        }
-	
-	                        if (options.appendClassName) {
-	                            $dialog.addClass(options.appendClassName);
-	                        }
-	
-	                        if (options.width) {
-	                            $dialogContent = $dialog[0].querySelector('.ngdialog-content');
-	                            if (angular.isString(options.width)) {
-	                                $dialogContent.style.width = options.width;
-	                            } else {
-	                                $dialogContent.style.width = options.width + 'px';
-	                            }
-	                        }
-	
-	                        if (options.height) {
-	                            $dialogContent = $dialog[0].querySelector('.ngdialog-content');
-	                            if (angular.isString(options.height)) {
-	                                $dialogContent.style.height = options.height;
-	                            } else {
-	                                $dialogContent.style.height = options.height + 'px';
-	                            }
-	                        }
-	
-	                        if (options.disableAnimation) {
-	                            $dialog.addClass(disabledAnimationClass);
-	                        }
-	
-	                        if (options.appendTo && angular.isString(options.appendTo)) {
-	                            $dialogParent = angular.element(document.querySelector(options.appendTo));
-	                        } else {
-	                            $dialogParent = $elements.body;
-	                        }
-	
-	                        privateMethods.applyAriaAttributes($dialog, options);
-	
-	                        if (options.preCloseCallback) {
-	                            var preCloseCallback;
-	
-	                            if (angular.isFunction(options.preCloseCallback)) {
-	                                preCloseCallback = options.preCloseCallback;
-	                            } else if (angular.isString(options.preCloseCallback)) {
-	                                if (scope) {
-	                                    if (angular.isFunction(scope[options.preCloseCallback])) {
-	                                        preCloseCallback = scope[options.preCloseCallback];
-	                                    } else if (scope.$parent && angular.isFunction(scope.$parent[options.preCloseCallback])) {
-	                                        preCloseCallback = scope.$parent[options.preCloseCallback];
-	                                    } else if ($rootScope && angular.isFunction($rootScope[options.preCloseCallback])) {
-	                                        preCloseCallback = $rootScope[options.preCloseCallback];
-	                                    }
-	                                }
-	                            }
-	
-	                            if (preCloseCallback) {
-	                                $dialog.data('$ngDialogPreCloseCallback', preCloseCallback);
-	                            }
-	                        }
-	
-	                        scope.closeThisDialog = function (value) {
-	                            privateMethods.closeDialog($dialog, value);
-	                        };
-	
-	                        if (options.controller && (angular.isString(options.controller) || angular.isArray(options.controller) || angular.isFunction(options.controller))) {
-	
-	                            var label;
-	
-	                            if (options.controllerAs && angular.isString(options.controllerAs)) {
-	                                label = options.controllerAs;
-	                            }
-	
-	                            var controllerInstance = $controller(options.controller, angular.extend(locals, {
-	                                $scope: scope,
-	                                $element: $dialog
-	                            }), true, label);
-	
-	                            if (options.bindToController) {
-	                                angular.extend(controllerInstance.instance, { ngDialogId: scope.ngDialogId, ngDialogData: scope.ngDialogData, closeThisDialog: scope.closeThisDialog, confirm: scope.confirm });
-	                            }
-	
-	                            if (typeof controllerInstance === 'function') {
-	                                $dialog.data('$ngDialogControllerController', controllerInstance());
-	                            } else {
-	                                $dialog.data('$ngDialogControllerController', controllerInstance);
-	                            }
-	                        }
-	
-	                        $timeout(function () {
-	                            var $activeDialogs = document.querySelectorAll('.ngdialog');
-	                            privateMethods.deactivateAll($activeDialogs);
-	
-	                            $compile($dialog)(scope);
-	                            var widthDiffs = $window.innerWidth - $elements.body.prop('clientWidth');
-	                            $elements.html.addClass(options.bodyClassName);
-	                            $elements.body.addClass(options.bodyClassName);
-	                            var scrollBarWidth = widthDiffs - ($window.innerWidth - $elements.body.prop('clientWidth'));
-	                            if (scrollBarWidth > 0) {
-	                                privateMethods.setBodyPadding(scrollBarWidth);
-	                            }
-	                            $dialogParent.append($dialog);
-	
-	                            privateMethods.activate($dialog);
-	
-	                            if (options.trapFocus) {
-	                                privateMethods.autoFocus($dialog);
-	                            }
-	
-	                            if (options.name) {
-	                                $rootScope.$broadcast('ngDialog.opened', { dialog: $dialog, name: options.name });
-	                            } else {
-	                                $rootScope.$broadcast('ngDialog.opened', $dialog);
-	                            }
-	                        });
-	
-	                        if (!keydownIsBound) {
-	                            $elements.body.bind('keydown', privateMethods.onDocumentKeydown);
-	                            keydownIsBound = true;
-	                        }
-	
-	                        if (options.closeByNavigation) {
-	                            var eventName = privateMethods.getRouterLocationEventName();
-	                            $rootScope.$on(eventName, function ($event) {
-	                                if (privateMethods.closeDialog($dialog) === false) $event.preventDefault();
-	                            });
-	                        }
-	
-	                        if (options.preserveFocus) {
-	                            $dialog.data('$ngDialogPreviousFocus', document.activeElement);
-	                        }
-	
-	                        closeByDocumentHandler = function closeByDocumentHandler(event) {
-	                            var isOverlay = options.closeByDocument ? $el(event.target).hasClass('ngdialog-overlay') : false;
-	                            var isCloseBtn = $el(event.target).hasClass('ngdialog-close');
-	
-	                            if (isOverlay || isCloseBtn) {
-	                                publicMethods.close($dialog.attr('id'), isCloseBtn ? '$closeButton' : '$document');
-	                            }
-	                        };
-	
-	                        if (typeof $window.Hammer !== 'undefined') {
-	                            var hammerTime = scope.hammerTime = $window.Hammer($dialog[0]);
-	                            hammerTime.on('tap', closeByDocumentHandler);
-	                        } else {
-	                            $dialog.bind('click', closeByDocumentHandler);
-	                        }
-	
-	                        dialogsCount += 1;
-	
-	                        return publicMethods;
-	                    });
-	
-	                    return {
-	                        id: dialogID,
-	                        closePromise: defer.promise,
-	                        close: function close(value) {
-	                            privateMethods.closeDialog($dialog, value);
-	                        }
-	                    };
-	
-	                    function loadTemplateUrl(tmpl, config) {
-	                        $rootScope.$broadcast('ngDialog.templateLoading', tmpl);
-	                        return $http.get(tmpl, config || {}).then(function (res) {
-	                            $rootScope.$broadcast('ngDialog.templateLoaded', tmpl);
-	                            return res.data || '';
-	                        });
-	                    }
-	
-	                    function loadTemplate(tmpl) {
-	                        if (!tmpl) {
-	                            return 'Empty template';
-	                        }
-	
-	                        if (angular.isString(tmpl) && options.plain) {
-	                            return tmpl;
-	                        }
-	
-	                        if (typeof options.cache === 'boolean' && !options.cache) {
-	                            return loadTemplateUrl(tmpl, { cache: false });
-	                        }
-	
-	                        return loadTemplateUrl(tmpl, { cache: $templateCache });
-	                    }
-	                },
-	
-	                /*
-	                 * @param {Object} options:
-	                 * - template {String} - id of ng-template, url for partial, plain string (if enabled)
-	                 * - plain {Boolean} - enable plain string templates, default false
-	                 * - name {String}
-	                 * - scope {Object}
-	                 * - controller {String}
-	                 * - controllerAs {String}
-	                 * - className {String} - dialog theme class
-	                 * - appendClassName {String} - dialog theme class to be appended to defaults
-	                 * - showClose {Boolean} - show close button, default true
-	                 * - closeByEscape {Boolean} - default false
-	                 * - closeByDocument {Boolean} - default false
-	                 * - preCloseCallback {String|Function} - user supplied function name/function called before closing dialog (if set); not called on confirm
-	                 * - bodyClassName {String} - class added to body at open dialog
-	                 *
-	                 * @return {Object} dialog
-	                 */
-	                openConfirm: function openConfirm(opts) {
-	                    var defer = $q.defer();
-	                    var options = angular.copy(defaults);
-	
-	                    opts = opts || {};
-	
-	                    // Merge opts.data with predefined via setDefaults
-	                    if (typeof options.data !== 'undefined') {
-	                        if (typeof opts.data === 'undefined') {
-	                            opts.data = {};
-	                        }
-	                        opts.data = angular.merge(angular.copy(options.data), opts.data);
-	                    }
-	
-	                    angular.extend(options, opts);
-	
-	                    options.scope = angular.isObject(options.scope) ? options.scope.$new() : $rootScope.$new();
-	                    options.scope.confirm = function (value) {
-	                        defer.resolve(value);
-	                        var $dialog = $el(document.getElementById(openResult.id));
-	                        privateMethods.performCloseDialog($dialog, value);
-	                    };
-	
-	                    var openResult = publicMethods.open(options);
-	                    if (openResult) {
-	                        openResult.closePromise.then(function (data) {
-	                            if (data) {
-	                                return defer.reject(data.value);
-	                            }
-	                            return defer.reject();
-	                        });
-	                        return defer.promise;
-	                    }
-	                },
-	
-	                isOpen: function isOpen(id) {
-	                    var $dialog = $el(document.getElementById(id));
-	                    return $dialog.length > 0;
-	                },
-	
-	                /*
-	                 * @param {String} id
-	                 * @return {Object} dialog
-	                 */
-	                close: function close(id, value) {
-	                    var $dialog = $el(document.getElementById(id));
-	
-	                    if ($dialog.length) {
-	                        privateMethods.closeDialog($dialog, value);
-	                    } else {
-	                        if (id === '$escape') {
-	                            var topDialogId = openIdStack[openIdStack.length - 1];
-	                            $dialog = $el(document.getElementById(topDialogId));
-	                            if ($dialog.data('$ngDialogOptions').closeByEscape) {
-	                                privateMethods.closeDialog($dialog, '$escape');
-	                            }
-	                        } else {
-	                            publicMethods.closeAll(value);
-	                        }
-	                    }
-	
-	                    return publicMethods;
-	                },
-	
-	                closeAll: function closeAll(value) {
-	                    var $all = document.querySelectorAll('.ngdialog');
-	
-	                    // Reverse order to ensure focus restoration works as expected
-	                    for (var i = $all.length - 1; i >= 0; i--) {
-	                        var dialog = $all[i];
-	                        privateMethods.closeDialog($el(dialog), value);
-	                    }
-	                },
-	
-	                getOpenDialogs: function getOpenDialogs() {
-	                    return openIdStack;
-	                },
-	
-	                getDefaults: function getDefaults() {
-	                    return defaults;
-	                }
-	            };
-	
-	            angular.forEach(['html', 'body'], function (elementName) {
-	                $elements[elementName] = $document.find(elementName);
-	                if (forceElementsReload[elementName]) {
-	                    var eventName = privateMethods.getRouterLocationEventName();
-	                    $rootScope.$on(eventName, function () {
-	                        $elements[elementName] = $document.find(elementName);
-	                    });
-	                }
-	            });
-	
-	            return publicMethods;
-	        }];
-	    });
-	
-	    m.directive('ngDialog', ['ngDialog', function (ngDialog) {
-	        return {
-	            restrict: 'A',
-	            scope: {
-	                ngDialogScope: '='
-	            },
-	            link: function link(scope, elem, attrs) {
-	                elem.on('click', function (e) {
-	                    e.preventDefault();
-	
-	                    var ngDialogScope = angular.isDefined(scope.ngDialogScope) ? scope.ngDialogScope : 'noScope';
-	                    angular.isDefined(attrs.ngDialogClosePrevious) && ngDialog.close(attrs.ngDialogClosePrevious);
-	
-	                    var defaults = ngDialog.getDefaults();
-	
-	                    ngDialog.open({
-	                        template: attrs.ngDialog,
-	                        className: attrs.ngDialogClass || defaults.className,
-	                        appendClassName: attrs.ngDialogAppendClass,
-	                        controller: attrs.ngDialogController,
-	                        controllerAs: attrs.ngDialogControllerAs,
-	                        bindToController: attrs.ngDialogBindToController,
-	                        scope: ngDialogScope,
-	                        data: attrs.ngDialogData,
-	                        showClose: attrs.ngDialogShowClose === 'false' ? false : attrs.ngDialogShowClose === 'true' ? true : defaults.showClose,
-	                        closeByDocument: attrs.ngDialogCloseByDocument === 'false' ? false : attrs.ngDialogCloseByDocument === 'true' ? true : defaults.closeByDocument,
-	                        closeByEscape: attrs.ngDialogCloseByEscape === 'false' ? false : attrs.ngDialogCloseByEscape === 'true' ? true : defaults.closeByEscape,
-	                        overlay: attrs.ngDialogOverlay === 'false' ? false : attrs.ngDialogOverlay === 'true' ? true : defaults.overlay,
-	                        preCloseCallback: attrs.ngDialogPreCloseCallback || defaults.preCloseCallback,
-	                        bodyClassName: attrs.ngDialogBodyClass || defaults.bodyClassName
-	                    });
-	                });
-	            }
-	        };
-	    }]);
-	
-	    return m;
-	});
-
-/***/ },
-/* 86 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 87 */,
-/* 88 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 89 */,
-/* 90 */
+/* 87 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34949,21 +34792,21 @@
 	}
 
 /***/ },
-/* 91 */
+/* 88 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 92 */,
-/* 93 */
+/* 89 */,
+/* 90 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 94 */,
-/* 95 */
+/* 91 */,
+/* 92 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -35005,8 +34848,8 @@
 	}
 
 /***/ },
-/* 96 */
-/***/ function(module, exports) {
+/* 93 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -35014,30 +34857,33 @@
 	  value: true
 	});
 	exports.default = auth;
-	auth.$inject = ['$rootScope', 'userService', 'ngDialog', '$state'];
 	
-	function auth($rootScope, userService, ngDialog, $state) {
+	var _angular = __webpack_require__(1);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	auth.$inject = ['$rootScope', 'userService', '$mdDialog', '$state'];
+	
+	function auth($rootScope, userService, $mdDialog, $state) {
 	
 	  $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
 	    if (toState.data && toState.data.requiresAuth && !userService.isAuthenticated()) {
-	      (function () {
-	        event.preventDefault();
+	      event.preventDefault();
 	
-	        var dialog = ngDialog.open({
-	          template: '<user-auth success="success()"></user-auth>',
-	          plain: true,
-	          controller: ['$scope', function ($scope) {
-	            $scope.success = function () {
-	              dialog.close();
-	              return $state.go(toState.name, toParams);
-	            };
-	          }]
-	        });
-	
-	        dialog.closePromise.catch(function (err) {
-	          return alert('failure!\n\n' + err);
-	        });
-	      })();
+	      $mdDialog.show({
+	        parent: _angular2.default.element(document.body),
+	        template: '<md-dialog><user-auth success="success()"></user-auth></md-dialog>',
+	        controller: ['$scope', function ($scope) {
+	          $scope.success = function () {
+	            $mdDialog.hide();
+	            return $state.go(toState.name, toParams);
+	          };
+	        }],
+	        clickOutsideToClose: true,
+	        escapeToClose: true
+	      });
 	    }
 	  });
 	}

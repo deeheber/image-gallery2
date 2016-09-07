@@ -1,8 +1,8 @@
 <span ng-class="$ctrl.styles.list">
   <div class="item">
     <h2>{{$ctrl.info.title}}</h2>
-    <p>{{$ctrl.info.description}}</p>
-    <a ng-href="{{$ctrl.info.link}}">View</a>
+    <h3>{{$ctrl.info.description}}</h3>
+    <a ng-href="{{$ctrl.info.link}}">VIEW PHOTO</a>
     <div>
       <md-button ng-click="showWarning=!showWarning">Delete</md-button>
       <md-button ng-hide="showUpdate" ng-click="showUpdate=!showUpdate">Edit</md-button>
@@ -13,7 +13,7 @@
     <!-- Warning message when deleting an image -->
     <div ng-show="showWarning">
       <p class="confirmMessage">Are you sure?</p>
-        <md-button ng-click="$ctrl.remove($ctrl.info)">Confirm Delete</md-button>
+        <md-button class="md-warn" ng-click="$ctrl.remove($ctrl.info)">Confirm Delete</md-button>
         <md-button ng-click="showWarning=false">Keep Photo</md-button>
     </div>
   </div>
