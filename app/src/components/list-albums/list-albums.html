@@ -12,8 +12,8 @@
           <md-button ng-show="showUpdate" ng-click="showUpdate=false">Cancel Edit</md-button>
           <!-- Warning message when deleting an album -->
           <div ng-show="showWarning">
-            <p class="confirmMessage">Are you sure?</p>
-              <md-button ng-click="$ctrl.remove(album._id)">Confirm Delete</md-button>
+            <p class="warningText">Are you sure?</p>
+              <md-button class="md-warn" ng-click="$ctrl.remove(album._id)">Confirm Delete</md-button>
               <md-button ng-click="showWarning=false">Keep Album</md-button>
           </div>
           <!-- Update album form -->

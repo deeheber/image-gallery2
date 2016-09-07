@@ -3,15 +3,13 @@ import router from 'angular-ui-router';
 import components from './components';
 import services from './services';
 import md from 'angular-material';
+import messages from 'angular-messages';
 import 'angular-ui-router/release/stateEvents';
-import ngDialog from 'ng-dialog';
-import 'ng-dialog/css/ngDialog.css';
-import 'ng-dialog/css/ngDialog-theme-default.css';
 
 const app = angular.module('myApp', [
   router,
   angular.module('ui.router.state.events').name,
-  ngDialog,
+  messages,
   components,
   services,
   md

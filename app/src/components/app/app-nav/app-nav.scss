@@ -2,10 +2,15 @@
   a {
     font-size: 1.5em;
     margin-right: 0.5em;
-    text-decoration: none;
     color: white;
   }
   a.active {
-    border-bottom: 1px solid white;
+    color: rgba(233,30,99,0.87);
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: white;
+    text-decoration: underline;
   }
 }

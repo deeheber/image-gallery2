@@ -1,19 +1,14 @@
-<section>
-	<h2>Sign in to view photos</h2>
-	<form name="auth" ng-submit="$ctrl.authenticate()">
-		<div>
-			<label>
-				Username: <input ng-model="$ctrl.credentials.username">
-			</label>
-		</div>
-
-		<div>
-			<label>
-				Password: <input type="password" ng-model="$ctrl.credentials.password">
-			</label>
-		</div>
-
-		<button type="submit">Sign In</button>
+<h2>Sign in to view photos</h2>
+	<form name="auth" ng-submit="$ctrl.authenticate()" layout="column">
+		<md-input-container class="md-accent">
+			<input placeholder="Username" ng-model="$ctrl.credentials.username">
+		</md-input-container>
+		<md-input-container class="md-accent">
+			 <input placeholder="Password" type="password" ng-model="$ctrl.credentials.password">
+		</md-input-container>
+		</md-dialog-content>
+		<md-dialog-actions>
+			<md-button type="submit">Sign In</md-button>
+		</md-dialog-actions>
 	</form>
-	<div class="error" ng-if='$ctrl.error'>{{$ctrl.error.reason}}</div>
-</section>
+<div class="error" ng-if='$ctrl.error'>{{$ctrl.error.reason}}</div>

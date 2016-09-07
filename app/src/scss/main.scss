@@ -1,9 +1,19 @@
  md-content {
    text-align: center;
    a {
-     color: rgba(63,81,181,0.87);
      text-decoration: none;
+     color: rgba(233,30,99,0.87);
+     cursor: pointer;
    }
+
+   a:hover {
+     color: rgba(63,81,181,0.87);
+   }
+
    margin: 2%;
    padding: 1%
+ }
+
+ md-dialog {
+   padding: 3%;
  }

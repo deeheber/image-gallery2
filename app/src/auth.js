@@ -1,24 +1,26 @@
-auth.$inject = ['$rootScope', 'userService', 'ngDialog', '$state'];
+import angular from 'angular';
 
-export default function auth($rootScope, userService, ngDialog, $state){
+auth.$inject = ['$rootScope', 'userService', '$mdDialog', '$state'];
+
+export default function auth($rootScope, userService, $mdDialog, $state){
 
   $rootScope.$on('$stateChangeStart', (event, toState, toParams )=>{
     if (toState.data && toState.data.requiresAuth && !userService.isAuthenticated()){
       event.preventDefault();
 
-      const dialog = ngDialog.open({
-        template: '<user-auth success="success()"></user-auth>',
-        plain: true,
+      $mdDialog.show({
+        parent: angular.element(document.body),
+        template: '<md-dialog><user-auth success="success()"></user-auth></md-dialog>',
         controller: ['$scope', function($scope){
           $scope.success = function(){
-            dialog.close();
+            $mdDialog.hide();
             return $state.go(toState.name, toParams);
           };
-        }]
+        }],
+        clickOutsideToClose: true,
+        escapeToClose: true
       });
 
-      dialog.closePromise
-            .catch(err=>alert('failure!\n\n' + err));
     }
 
   });
