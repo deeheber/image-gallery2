@@ -20486,8 +20486,12 @@
 	        _this.display = params.display;
 	      } else if (params.display === 'thumbnail') {
 	        _this.display = params.display;
+	      } else if (params.display === 'list') {
+	        _this.display = params.display;
 	      } else {
+	        // fallback for invalid display params
 	        _this.display = 'list';
+	        $state.go($state.current.name, { display: 'list' });
 	      }
 	    } else {
 	      _this.display = params.display || 'list';
@@ -20497,6 +20501,7 @@
 	  this.changeDisplay = function (selectedDisplay) {
 	    //TODO refactor this, so it takes a dynamic value
 	    //vs a hardcoded string passed in as the selectedDisplay
+	    //checkout user-auth.js
 	    _this.display = selectedDisplay;
 	    $state.go($state.current.name, { display: _this.display });
 	  };
@@ -20847,10 +20852,20 @@
 	
 	exports.default = {
 	  template: _appNav4.default,
-	  controller: function controller() {
-	    this.styles = _appNav2.default;
-	  }
+	  controller: controller
 	};
+	
+	
+	controller.$inject = ['userService', '$state'];
+	
+	function controller(userService, $state) {
+	  this.styles = _appNav2.default;
+	  this.logout = function () {
+	    userService.logout();
+	    $state.go('welcome');
+	  };
+	  this.isAuthenticated = userService.isAuthenticated;
+	}
 
 /***/ },
 /* 42 */
@@ -20864,7 +20879,7 @@
 /* 44 */
 /***/ function(module, exports) {
 
-	module.exports = "<nav ng-class=\"$ctrl.styles.appNav\">\n  <a ui-sref-active=\"active\" ui-sref=\"welcome\">Home</a>\n  <a ui-sref-active=\"active\" ui-sref=\"list-albums\">Albums</a>\n</nav>\n";
+	module.exports = "<nav ng-class=\"$ctrl.styles.appNav\">\n  <a ui-sref-active=\"active\" ui-sref=\"welcome\">Home</a>\n  <a ui-sref-active=\"active\" ui-sref=\"list-albums\">Albums</a>\n  <a ng-if=\"$ctrl.isAuthenticated()\" ng-click=\"$ctrl.logout()\">Logout</a>\n</nav>\n";
 
 /***/ },
 /* 45 */
