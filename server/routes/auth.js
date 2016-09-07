@@ -54,22 +54,15 @@ router.post('/signin', jsonParser, (req, res)=>{
     .then(user=>{
       if(!user){
         return res.status(400).json({
-          msg: 'No username',
-          reason: 'Please include a username'
-        });
-      }
-
-      if(!password){
-        return res.status(400).json({
-          msg: 'No password',
-          reason: 'Please include a password'
+          msg: 'User does not exist',
+          reason: 'Username or password is incorrect'
         });
       }
 
       if (!user.compareHash(password)){
         return res.status(400).json({
-          msg: 'Usernmane or password is incorrect',
-          reason: 'Usernmane or password is incorrect'
+          msg: 'Username or password is incorrect',
+          reason: 'Username or password is incorrect'
         });
       }
 

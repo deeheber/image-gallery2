@@ -14,7 +14,7 @@ module.exports = function ensureAuth(req, res, next){
 
   tokenChecker.verify(token)
     .then(payload=>{
-      req.uers = payload;
+      req.user = payload;
       next();
     })
     .catch(()=>{
