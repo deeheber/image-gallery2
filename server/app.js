@@ -1,11 +1,11 @@
 const express = require('express');
 const app = module.exports = express();
 const morgan = require('morgan');
-const images = require('../routes/images');
-const albums = require('../routes/albums');
-const auth = require('../routes/auth');
-const ensureAuth = require('./ensureAuth');
-const cors = require('./cors')('*');
+const images = require('./routes/images');
+const albums = require('./routes/albums');
+const auth = require('./routes/auth');
+const ensureAuth = require('./auth/ensureAuth');
+const cors = require('./auth/cors')('*');
 
 app.use(morgan('dev'));
 

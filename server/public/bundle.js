@@ -20429,7 +20429,7 @@
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.addImage\">\n  <!-- Error Message -->\n  <div id=\"error\" ng-show=\"$ctrl.isInvalid\">\n    <p>Please fill out all fields.</p>\n  </div>\n  <!-- Form -->\n  <form ng-submit=\"$ctrl.submit()\">\n    <md-input-container>\n      <input placeholder=\"Title\" ng-model=\"$ctrl.image.title\">\n    </md-input-container>\n    <md-input-container>\n      <input placeholder=\"Description\" ng-model=\"$ctrl.image.description\">\n    </md-input-container>\n    <md-input-container>\n      <input placeholder=\"Image URL\" ng-model=\"$ctrl.image.link\">\n    </md-input-container>\n    <md-button type=\"submit\">ADD</md-button>\n  </form>\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles.addImage\">\n  <!-- Error Message -->\n  <div id=\"error\" ng-show=\"$ctrl.isInvalid\">\n    <p>Please fill out all fields.</p>\n  </div>\n  <!-- Form -->\n  <form ng-submit=\"$ctrl.submit()\">\n    <md-input-container class=\"md-accent\">\n      <input placeholder=\"Title\" ng-model=\"$ctrl.image.title\">\n    </md-input-container>\n    <md-input-container class=\"md-accent\">\n      <input placeholder=\"Description\" ng-model=\"$ctrl.image.description\">\n    </md-input-container>\n    <md-input-container class=\"md-accent\">\n      <input placeholder=\"Image URL\" ng-model=\"$ctrl.image.link\">\n    </md-input-container>\n    <md-button type=\"submit\">ADD</md-button>\n  </form>\n</section>\n";
 
 /***/ },
 /* 13 */
@@ -20720,7 +20720,7 @@
 /* 30 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.updateImage\">\n  <!-- Error Message -->\n  <div id=\"error\" ng-show=\"$ctrl.isInvalid\">\n    <p>Must be new information and not blank.</p>\n  </div>\n  <!-- Form -->\n  <form ng-submit=\"$ctrl.submit()\">\n    <md-input-container>\n      <input placeholder=\"Title\" ng-model=\"$ctrl.image.title\">\n    </md-input-container>\n    <md-input-container>\n      <input placeholder=\"Description\" ng-model=\"$ctrl.image.description\">\n    </md-input-container>\n    <md-input-container>\n      <input placeholder=\"Image URL\" ng-model=\"$ctrl.image.link\">\n    </md-input-container>\n    <div>\n      <md-button type=\"submit\">Send</md-button>\n    </div>\n  </form>\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles.updateImage\">\n  <!-- Error Message -->\n  <div id=\"error\" ng-show=\"$ctrl.isInvalid\">\n    <p>Must be new information and not blank.</p>\n  </div>\n  <!-- Form -->\n  <form ng-submit=\"$ctrl.submit()\">\n    <md-input-container class=\"md-accent\">\n      <input placeholder=\"Title\" ng-model=\"$ctrl.image.title\">\n    </md-input-container>\n    <md-input-container class=\"md-accent\">\n      <input placeholder=\"Description\" ng-model=\"$ctrl.image.description\">\n    </md-input-container>\n    <md-input-container class=\"md-accent\">\n      <input placeholder=\"Image URL\" ng-model=\"$ctrl.image.link\">\n    </md-input-container>\n    <div>\n      <md-button type=\"submit\">Send</md-button>\n    </div>\n  </form>\n</section>\n";
 
 /***/ },
 /* 31 */
@@ -21093,7 +21093,7 @@
 /* 57 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.addAlbum\">\n  <!-- Error Message -->\n  <div id=\"error\" ng-show=\"$ctrl.isInvalid\">\n    <p>Please fill out all fields.</p>\n  </div>\n  <!-- Form -->\n  <form ng-submit=\"$ctrl.submit()\">\n    <md-input-container>\n      <input placeholder=\"Title\" ng-model=\"$ctrl.album.title\">\n    </md-input-container>\n    <md-button type=\"submit\">ADD</md-button>\n  </form>\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles.addAlbum\">\n  <!-- Error Message -->\n  <div id=\"error\" ng-show=\"$ctrl.isInvalid\">\n    <p>Please fill out all fields.</p>\n  </div>\n  <!-- Form -->\n  <form ng-submit=\"$ctrl.submit()\">\n    <md-input-container class=\"md-accent\">\n      <input placeholder=\"Title\" ng-model=\"$ctrl.album.title\">\n    </md-input-container>\n    <md-button type=\"submit\">ADD</md-button>\n  </form>\n</section>\n";
 
 /***/ },
 /* 58 */
@@ -21249,7 +21249,7 @@
 /* 65 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.updateAlbum\">\n  <!-- Error Message -->\n  <div id=\"error\" ng-show=\"$ctrl.isInvalid\">\n    <p>Title is required and must be different</p>\n  </div>\n  <!-- Form -->\n  <form ng-submit=\"$ctrl.submit()\">\n    <md-input-container>\n      <input placeholder=\"Title\" ng-model=\"$ctrl.album.title\">\n    </md-input-container>\n    <md-button type=\"submit\">Send</md-button>\n  </form>\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles.updateAlbum\">\n  <!-- Error Message -->\n  <div id=\"error\" ng-show=\"$ctrl.isInvalid\">\n    <p>Title is required and must be different</p>\n  </div>\n  <!-- Form -->\n  <form ng-submit=\"$ctrl.submit()\">\n    <md-input-container class=\"md-accent\">\n      <input placeholder=\"Title\" ng-model=\"$ctrl.album.title\">\n    </md-input-container>\n    <md-button type=\"submit\">Send</md-button>\n  </form>\n</section>\n";
 
 /***/ },
 /* 66 */
