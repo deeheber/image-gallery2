@@ -19,12 +19,14 @@ module.exports = router
       .catch(next);
   })
 
-  // GET all images with a specific album id
+  // GET album name and containing images
   .get('/:id/content', (req, res, next)=>{
-    Image.find({album: req.params.id})
-      .populate({path: 'album', select: 'title'})
-      .then(albumContents=>res.send(albumContents))
-      .catch(next);
+    return Promise.all([
+      Album.findById(req.params.id),
+      Image.find({album: req.params.id})
+    ])
+    .then(albumContents=>res.send(albumContents))
+    .catch(next);
   })
 
   .post('/', bodyParser, (req, res, next)=>{

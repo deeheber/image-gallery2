@@ -42,13 +42,9 @@ function controller(imageService, $state){
 
   imageService.getAlbumContent(this.albumId)
       .then(data=>{
-        this.images = data;
-        if(data.length){
-          this.title = data[0].album.title;
-        } else {
-          //TODO: Find a more elegant way to pass the album title
-          //when the album does not have images in it
-          this.title = '';
+        if(data){
+          this.title = data[0].title;
+          this.images = data[1];
         }
       })
       .catch(err=>console.log(err));
