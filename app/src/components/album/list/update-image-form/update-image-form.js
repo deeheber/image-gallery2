@@ -18,8 +18,8 @@ export default{
 
     this.submit = ()=>{
       //TODO see about refactoring this later
-      const imageId = this.info._id;
-      this.image._id = imageId;
+      this.image._id = this.info._id;
+      this.image.album = this.info.album;
 
       const originalTitle = this.info.title;
       const originalDescription = this.info.description;

@@ -21,13 +21,13 @@ describe('update image form', ()=>{
     const update = image=>{
       imageUpdate = image;
     };
-    const info = {_id: '123', title: 'title', description: 'description', link: 'link'};
+    const info = {_id: '123', title: 'title', description: 'description', link: 'link', album: '123'};
 
     const component = $component('updateImageForm', null, {update, info});
     component.image.title = 'test1';
 
     component.submit();
-    assert.deepEqual(imageUpdate, {title: 'test1', _id: '123'});
+    assert.deepEqual(imageUpdate, {title: 'test1', _id: '123', album: '123'});
   });
 
   it('errors when form is empty', ()=>{
