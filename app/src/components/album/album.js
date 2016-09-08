@@ -36,11 +36,7 @@ function controller(imageService, $state){
     }
   };
 
-  this.changeDisplay = (selectedDisplay)=>{
-    //TODO refactor this, so it takes a dynamic value
-    //vs a hardcoded string passed in as the selectedDisplay
-    //checkout user-auth.js
-    this.display = selectedDisplay;
+  this.updateDisplay = ()=>{
     $state.go($state.current.name, {display: this.display});
   };
 

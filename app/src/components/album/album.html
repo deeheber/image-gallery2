@@ -2,19 +2,17 @@
   <h1>{{$ctrl.title}}</h1>
 
   <!-- Radio buttons -->
-  <div ng-class=$ctrl.styles.radioButtons>
-    <md-radio-group ng-model="$ctrl.display" layout="row" layout-align="center center">
-      <md-radio-button class="md-accent" value="list" aria-label="list" ng-click="$ctrl.changeDisplay('list')">
-        List
-      </md-radio-button>
-      <md-radio-button class="md-accent" value="thumbnail" aria-label="thumbnail" ng-click="$ctrl.changeDisplay('thumbnail')">
-        Thumbnail
-      </md-radio-button>
-      <md-radio-button class="md-accent" value="gallery" aria-label="gallery" ng-click="$ctrl.changeDisplay('gallery')">
-        Gallery
-      </md-radio-button>
-    </md-radio-group>
-  </div>
+  <md-radio-group ng-model="$ctrl.display" layout="row" layout-align="center center" ng-change="$ctrl.updateDisplay()">
+    <md-radio-button class="md-accent" value="list" aria-label="list">
+      List
+    </md-radio-button>
+    <md-radio-button class="md-accent" value="thumbnail" aria-label="thumbnail">
+      Thumbnail
+    </md-radio-button>
+    <md-radio-button class="md-accent" value="gallery" aria-label="gallery">
+      Gallery
+    </md-radio-button>
+  </md-radio-group>
 
   <!-- Image and image info -->
   <section>
