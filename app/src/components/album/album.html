@@ -2,7 +2,7 @@
   <h1>{{$ctrl.title}}</h1>
 
   <!-- Radio buttons -->
-  <md-radio-group ng-model="$ctrl.display" layout="row" layout-align="center center" ng-change="$ctrl.updateDisplay()">
+  <md-radio-group ng-if="$ctrl.images.length > 0" ng-model="$ctrl.display" layout="row" layout-align="center center" ng-change="$ctrl.updateDisplay()">
     <md-radio-button class="md-accent" value="list" aria-label="list">
       List
     </md-radio-button>
@@ -21,6 +21,10 @@
       <thumbnail ng-if="$ctrl.display === 'thumbnail'" info="image"></thumbnail>
       <gallery ng-if="$ctrl.display === 'gallery'" info="image"></gallery>
     </span>
+  </section>
+
+  <section ng-if="$ctrl.images.length == 0">
+    <p>This album doesn't have any pictures.</p>
   </section>
 
   <!-- Form to add more images -->
