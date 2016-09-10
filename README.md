@@ -25,7 +25,7 @@
 - Must login or create an account to view albums
 - All form fields are required to add and item
 - When updating, the form fields must be filled out and not the same as the original data
-- Can delete/update images from the individual album list view only
+- Can delete/update/add images from the individual album list view only
 
 ### Tests
 `cd app` and `npm run test`

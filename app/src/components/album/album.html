@@ -24,7 +24,8 @@
   </section>
 
   <!-- Form to add more images -->
-  <section>
+  <section ng-if="$ctrl.display === 'list'">
+    <!--TODO: make this a pop out dialog-->
     <add-image-form add="$ctrl.add" id="$ctrl.albumId"></add-image-form>
   </section>
 
