@@ -1,10 +1,8 @@
-<!--TODO: Move delete and edit into pop up dialogs
-and make this 3-4 columns for less scrolling up/down-->
 <span ng-class="$ctrl.styles.list">
   <div class="item">
-    <!--TODO: Make image show in pop up dialog or lightbox-->
-    <h2><a ng-href="{{$ctrl.info.link}}">{{$ctrl.info.title}}</a></h2>
+    <h2>{{$ctrl.info.title}}</h2>
     <h3>{{$ctrl.info.description}}</h3>
+    <a ng-href="{{$ctrl.info.link}}">VIEW PHOTO</a>
     <div>
       <md-button ng-click="showWarning=!showWarning">Delete</md-button>
       <md-button ng-hide="showUpdate" ng-click="showUpdate=!showUpdate">Edit</md-button>
