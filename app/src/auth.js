@@ -4,6 +4,8 @@ auth.$inject = ['$rootScope', 'userService', '$mdDialog', '$state'];
 
 export default function auth($rootScope, userService, $mdDialog, $state){
 
+  // TODO: Figure out a way to have content show depending on who is logged in
+  // multi tenancy???
   $rootScope.$on('$stateChangeStart', (event, toState, toParams )=>{
     if (toState.data && toState.data.requiresAuth && !userService.isAuthenticated()){
       event.preventDefault();
