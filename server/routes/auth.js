@@ -42,7 +42,7 @@ router.post('/signup', jsonParser, (req, res)=>{
       user.generateHash(password);
       return user.save()
       .then(user=>token.sign(user))
-      .then(result =>res.json(result));
+      .then(auth =>res.json({auth}));
 
     })
     .catch(err=>{
@@ -73,7 +73,7 @@ router.post('/signin', jsonParser, (req, res)=>{
         });
       }
 
-      token.sign(user).then(result=>res.json(result));
+      token.sign(user).then(auth=>res.json({auth}));
     })
     .catch(err=>{
       res.status(500).json({
