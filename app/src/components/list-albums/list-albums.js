@@ -17,6 +17,7 @@ function controller(albumService, $window){
     .catch(err=>console.log(err));
 
   this.add = albumToAdd=>{
+    albumToAdd.user = this.userId;
     albumService.add(albumToAdd)
       .then(addedAlbum=>this.albums.push(addedAlbum))
       .catch(err=>console.log(err));

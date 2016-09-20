@@ -14,7 +14,7 @@ const album = new Schema({
 
 album.statics.findByUser = function (userId) {
   return this.find({user: userId})
-    .sort({createdAt: -1})
+    //.sort({createdAt: -1})
     .then(albums => {
       //if (!albums) throw {status: 400, message: 'No albums found.'};
       return albums;

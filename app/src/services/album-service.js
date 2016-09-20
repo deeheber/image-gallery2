@@ -1,7 +1,7 @@
-albumService.$inject = ['$http', 'apiUrl', '$cacheFactory'];
+albumService.$inject = ['$http', 'apiUrl', /*'$cacheFactory'*/];
 
-export default function albumService($http, apiUrl, $cacheFactory){
-  const cache = $cacheFactory.get('$http');
+export default function albumService($http, apiUrl/*, $cacheFactory*/){
+  //const cache = $cacheFactory.get('$http');
 
   return {
     // getAll(){
@@ -10,26 +10,26 @@ export default function albumService($http, apiUrl, $cacheFactory){
     //     .catch(err=>console.log(err));
     // },
     getByUser(userId){
-      return $http.get(`${apiUrl}/albums/${userId}`, {cache: true})
+      return $http.get(`${apiUrl}/albums/${userId}`/*, {cache: true}*/)
         .then(response=>response.data)
         .catch(err=>console.log(err));
     },
     add(album){
-      cache.remove(`${apiUrl}/albums`);
+      //cache.remove(`${apiUrl}/albums`);
 
-      return $http.post(`${apiUrl}/albums`, album)
+      return $http.post(`${apiUrl}/albums/${album.user}`, album)
         .then(response=>response.data)
         .catch(err=>console.log(err));
     },
     remove(albumId){
-      cache.remove(`${apiUrl}/albums`);
+      //cache.remove(`${apiUrl}/albums`);
 
       return $http.delete(`${apiUrl}/albums/${albumId}`)
         .then(response=>response.data)
         .catch(err=>console.log(err));
     },
     update(album){
-      cache.remove(`${apiUrl}/albums`);
+      //cache.remove(`${apiUrl}/albums`);
       const albumId = album._id;
 
       return $http.put(`${apiUrl}/albums/${albumId}`, album)
