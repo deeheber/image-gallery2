@@ -13,13 +13,6 @@ module.exports = router
       .catch(next);
   })
 
-  // GET single album object by id
-  // .get('/:id', (req, res, next)=>{
-  //   Album.findById(req.params.id)
-  //     .then(album=>res.send(album))
-  //     .catch(next);
-  // })
-
   // GET album name and containing images
   .get('/:id/content', (req, res, next)=>{
     return Promise.all([

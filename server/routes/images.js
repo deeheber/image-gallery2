@@ -5,29 +5,6 @@ const router = express.Router();
 
 module.exports = router
 
-  // .get('/', (req, res, next)=>{
-  //   Image.find()
-  //     .then(images=>res.send(images))
-  //     .catch(next);
-  // })
-
-  // .get('/:id', (req, res, next)=>{
-  //   Image.findById(req.params.id)
-  //     .then(image=>res.send(image))
-  //     .catch(next);
-  // })
-
-//Lists out the users images (might not be needed)
-  // .get('/byUser/:userId', (req, res, next) => {
-  //   Image.findByUser(req.params.userId)
-  //   .then(images => res.send(images))
-  //   .catch(err => {
-  //     console.log('error getting images by userid');
-  //     console.log(err);
-  //     next(err);
-  //   });
-  // })
-
   .post('/:userId', bodyParser, (req, res, next)=>{
     req.body.user = req.params.userId;
     new Image(req.body).save()

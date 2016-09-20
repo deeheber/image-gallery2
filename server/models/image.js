@@ -24,14 +24,4 @@ const image = new Schema({
   }
 }, {timestamps: true});
 
-
-image.statics.findByUser = function (userId) {
-  return this.find({user: userId})
-    //.sort({createdAt: -1})
-    .then(images => {
-      //if (!images) throw {status: 400, message: 'No images found.'};
-      return images;
-    });
-};
-
 module.exports = mongoose.model('Image', image);
