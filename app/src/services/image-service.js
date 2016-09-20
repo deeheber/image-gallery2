@@ -1,26 +1,26 @@
 imageService.$inject = ['$http', 'apiUrl', '$cacheFactory'];
 
-export default function imageService($http, apiUrl, $cacheFactory){
-  const cache = $cacheFactory.get('$http');
+export default function imageService($http, apiUrl/*, $cacheFactory*/){
+  //const cache = $cacheFactory.get('$http');
 
   return {
     getAlbumContent(albumId){
-      return $http.get(`${apiUrl}/albums/${albumId}/content`, {cache: true})
+      return $http.get(`${apiUrl}/albums/${albumId}/content`/*, {cache: true}*/)
         .then(response=>response.data)
         .catch(err=>console.log(err));
     },
-    add(image){
-      const albumId = image.album;
-      cache.remove(`${apiUrl}/albums/${albumId}/content`);
+    add(image, userId){
+      //const albumId = image.album;
+      //cache.remove(`${apiUrl}/albums/${albumId}/content`);
 
-      return $http.post(`${apiUrl}/images`, image)
+      return $http.post(`${apiUrl}/images/${userId}`, image)
         .then(response=>response.data)
         .catch(err=>console.log(err));
     },
     remove(image){
       const imageId = image._id;
-      const albumId = image.album;
-      cache.remove(`${apiUrl}/albums/${albumId}/content`);
+      //const albumId = image.album;
+      //cache.remove(`${apiUrl}/albums/${albumId}/content`);
 
       return $http.delete(`${apiUrl}/images/${imageId}`)
         .then(response=>response.data)
@@ -28,9 +28,9 @@ export default function imageService($http, apiUrl, $cacheFactory){
     },
     update(image){
       const imageId = image._id;
-      const albumId = image.album;
+      //const albumId = image.album;
 
-      cache.remove(`${apiUrl}/albums/${albumId}/content`);
+      //cache.remove(`${apiUrl}/albums/${albumId}/content`);
 
       return $http.put(`${apiUrl}/images/${imageId}`, image)
         .then(response=>response.data)
