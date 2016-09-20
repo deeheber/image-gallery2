@@ -24,7 +24,7 @@ function controller(albumService, $window){
   };
 
   this.remove = albumId=>{
-    albumService.remove(albumId)
+    albumService.remove(albumId, this.userId)
       .then(deleted=>{
         const index = this.albums.findIndex(album=>album._id === deleted._id);
         if(index !== -1){
@@ -35,7 +35,7 @@ function controller(albumService, $window){
   };
 
   this.update = albumToUpdate=>{
-    albumService.update(albumToUpdate)
+    albumService.update(albumToUpdate, this.userId)
       .then(updatedAlbum=>{
         if(!updatedAlbum) return;
         const index = this.albums.findIndex(album=>album._id === updatedAlbum._id);
