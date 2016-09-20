@@ -19,41 +19,41 @@ describe('image service', ()=>{
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('GETs all images with a specific album id', done=>{
-    const images = ['test', 'test1', 'test2'];
-    const albumId = '123';
+  // it('GETs all images with a specific album id', done=>{
+  //   const images = ['test', 'test1', 'test2'];
+  //   const albumId = '123';
 
-    $httpBackend
-      .expectGET('/api/albums/123/content')
-      .respond(images);
+  //   $httpBackend
+  //     .expectGET('/api/albums/123/content')
+  //     .respond(images);
 
-    imageService.getAlbumContent(albumId)
-      .then(allImages=>{
-        assert.deepEqual(allImages, images);
-        done();
-      })
-      .catch(done);
+  //   imageService.getAlbumContent(albumId)
+  //     .then(allImages=>{
+  //       assert.deepEqual(allImages, images);
+  //       done();
+  //     })
+  //     .catch(done);
 
-    $httpBackend.flush();
-  });
+  //   $httpBackend.flush();
+  // });
 
-  it('POSTs a new image', done=>{
-    const newImage = {title: 'Title', description: 'Description', link: 'bomb.com'};
-    const mockResponse = {__v: 0, title: 'Title', description: 'Description', link: 'bomb.com'};
+  // it('POSTs a new image', done=>{
+  //   const newImage = {title: 'Title', description: 'Description', link: 'bomb.com'};
+  //   const mockResponse = {__v: 0, title: 'Title', description: 'Description', link: 'bomb.com'};
 
-    $httpBackend
-      .expectPOST('/api/images', newImage)
-      .respond(mockResponse);
+  //   $httpBackend
+  //     .expectPOST('/api/images', newImage)
+  //     .respond(mockResponse);
 
-    imageService.add(newImage)
-      .then(addedImage=>{
-        assert.deepEqual(addedImage, mockResponse);
-        done();
-      })
-      .catch(done);
+  //   imageService.add(newImage)
+  //     .then(addedImage=>{
+  //       assert.deepEqual(addedImage, mockResponse);
+  //       done();
+  //     })
+  //     .catch(done);
 
-    $httpBackend.flush();
-  });
+  //   $httpBackend.flush();
+  // });
 
   it('removes an image', done=>{
     const imageToDelete = {_id: '123', title: 'Title', description: 'Description', link: 'bomb.com'};
