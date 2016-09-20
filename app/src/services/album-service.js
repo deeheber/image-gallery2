@@ -4,8 +4,13 @@ export default function albumService($http, apiUrl, $cacheFactory){
   const cache = $cacheFactory.get('$http');
 
   return {
-    getAll(){
-      return $http.get(`${apiUrl}/albums`, {cache: true})
+    // getAll(){
+    //   return $http.get(`${apiUrl}/albums`, {cache: true})
+    //     .then(response=>response.data)
+    //     .catch(err=>console.log(err));
+    // },
+    getByUser(userId){
+      return $http.get(`${apiUrl}/albums/${userId}`, {cache: true})
         .then(response=>response.data)
         .catch(err=>console.log(err));
     },

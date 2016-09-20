@@ -6,12 +6,13 @@ export default {
   controller
 };
 
-controller.$inject = ['albumService'];
+controller.$inject = ['albumService', '$window'];
 
-function controller(albumService){
+function controller(albumService, $window){
   this.styles = styles;
+  this.userId = $window.localStorage['id'];
 
-  albumService.getAll()
+  albumService.getByUser(this.userId)
     .then(albums=>this.albums=albums)
     .catch(err=>console.log(err));
 
