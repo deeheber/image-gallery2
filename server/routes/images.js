@@ -17,6 +17,7 @@ module.exports = router
       .catch(next);
   })
 
+//Lists out the users images (might not be needed)
   .get('/byUser/:userId', (req, res, next) => {
     Image.findByUser(req.params.userId)
     .then(images => res.send(images))
@@ -29,7 +30,6 @@ module.exports = router
 
   .post('/:userId', bodyParser, (req, res, next)=>{
     req.body.user = req.params.userId;
-
     new Image(req.body).save()
       .then(saved=>res.send(saved))
       .catch(next);

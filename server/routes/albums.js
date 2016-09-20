@@ -6,18 +6,19 @@ const router = express.Router();
 
 module.exports = router
 
-  .get('/', (req, res, next)=>{
-    Album.find()
+// Lists out the users albums
+  .get('/:userId', (req, res, next)=>{
+    Album.findByUser(req.params.userId)
       .then(albums=>res.send(albums))
       .catch(next);
   })
 
   // GET single album object by id
-  .get('/:id', (req, res, next)=>{
-    Album.findById(req.params.id)
-      .then(album=>res.send(album))
-      .catch(next);
-  })
+  // .get('/:id', (req, res, next)=>{
+  //   Album.findById(req.params.id)
+  //     .then(album=>res.send(album))
+  //     .catch(next);
+  // })
 
   // GET album name and containing images
   .get('/:id/content', (req, res, next)=>{
@@ -29,7 +30,8 @@ module.exports = router
     .catch(next);
   })
 
-  .post('/', bodyParser, (req, res, next)=>{
+  .post('/:userId', bodyParser, (req, res, next)=>{
+    req.body.user = req.params.userId;
     new Album(req.body).save()
       .then(saved=>res.send(saved))
       .catch(next);
