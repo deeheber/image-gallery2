@@ -10,10 +10,12 @@ export default{
   }
 };
 
-controller.$inject = ['imageService', '$state'];
+controller.$inject = ['imageService', '$state', '$window'];
 
-function controller(imageService, $state){
+function controller(imageService, $state, $window){
   this.styles = styles;
+
+  this.userId = $window.localStorage['id'];
 
   this.uiOnParamsChanged = (params)=>{
     // checking for valid params
@@ -50,7 +52,7 @@ function controller(imageService, $state){
       .catch(err=>console.log(err));
 
   this.add = imageToAdd=>{
-    imageService.add(imageToAdd)
+    imageService.add(imageToAdd, this.userId)
       .then(addedImage=>this.images.push(addedImage))
       .catch(err=>console.log(err));
   };

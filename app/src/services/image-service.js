@@ -9,11 +9,11 @@ export default function imageService($http, apiUrl, $cacheFactory){
         .then(response=>response.data)
         .catch(err=>console.log(err));
     },
-    add(image){
+    add(image, userId){
       const albumId = image.album;
       cache.remove(`${apiUrl}/albums/${albumId}/content`);
 
-      return $http.post(`${apiUrl}/images`, image)
+      return $http.post(`${apiUrl}/images/${userId}`, image)
         .then(response=>response.data)
         .catch(err=>console.log(err));
     },

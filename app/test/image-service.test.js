@@ -40,12 +40,13 @@ describe('image service', ()=>{
   it('POSTs a new image', done=>{
     const newImage = {title: 'Title', description: 'Description', link: 'bomb.com'};
     const mockResponse = {__v: 0, title: 'Title', description: 'Description', link: 'bomb.com'};
+    const userId = '123';
 
     $httpBackend
-      .expectPOST('/api/images', newImage)
+      .expectPOST(`/api/images/${userId}`, newImage)
       .respond(mockResponse);
 
-    imageService.add(newImage)
+    imageService.add(newImage, userId)
       .then(addedImage=>{
         assert.deepEqual(addedImage, mockResponse);
         done();

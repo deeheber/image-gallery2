@@ -5,19 +5,8 @@ const router = express.Router();
 
 module.exports = router
 
-  .get('/', (req, res, next)=>{
-    Image.find()
-      .then(images=>res.send(images))
-      .catch(next);
-  })
-
-  .get('/:id', (req, res, next)=>{
-    Image.findById(req.params.id)
-      .then(image=>res.send(image))
-      .catch(next);
-  })
-
-  .post('/', bodyParser, (req, res, next)=>{
+  .post('/:userId', bodyParser, (req, res, next)=>{
+    req.body.user = req.params.userId;
     new Image(req.body).save()
       .then(saved=>res.send(saved))
       .catch(next);

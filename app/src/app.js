@@ -16,7 +16,10 @@ const app = angular.module('myApp', [
 ]);
 
 app.config(['$mdThemingProvider', function($mdThemingProvider){
-  $mdThemingProvider.theme('default').dark();
+  $mdThemingProvider.theme('default')
+  .accentPalette('cyan')
+  .warnPalette('amber')
+  .dark();
 }]);
 
 export default app;

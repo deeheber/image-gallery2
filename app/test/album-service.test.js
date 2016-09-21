@@ -19,14 +19,15 @@ describe('album service', ()=>{
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('GETs all albums', done=>{
+  it('Retrives a users albums', done=>{
     const albums = ['test', 'test1', 'test2'];
+    const userId = '123';
 
     $httpBackend
-      .expectGET( '/api/albums' )
+      .expectGET( `/api/albums/${userId}` )
       .respond(albums);
 
-    albumService.getAll()
+    albumService.getByUser(userId)
       .then(allAlbums=>{
         assert.deepEqual(allAlbums, albums);
         done();
@@ -37,11 +38,12 @@ describe('album service', ()=>{
   });
 
   it('POSTs a new album', done=>{
-    const newAlbum = {title: 'Title'};
-    const mockResponse = {__v: 0, title: 'Title'};
+    const newAlbum = {title: 'Title', user: '123'};
+    const mockResponse = {__v: 0, title: 'Title', user: '123'};
+    const userId = '123';
 
     $httpBackend
-      .expectPOST('/api/albums', newAlbum)
+      .expectPOST(`/api/albums/${userId}`, newAlbum)
       .respond(mockResponse);
 
     albumService.add(newAlbum)

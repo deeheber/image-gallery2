@@ -17,7 +17,11 @@ const image = new Schema({
   album: {
     type: Schema.Types.ObjectId,
     ref: 'Album'
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   }
-});
+}, {timestamps: true});
 
 module.exports = mongoose.model('Image', image);

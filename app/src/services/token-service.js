@@ -1,6 +1,7 @@
 tokenService.$inject = ['$window'];
 
 const TOKEN_NAME = 'token';
+const ID = 'id';
 
 export default function tokenService($window) {
 
@@ -8,11 +9,13 @@ export default function tokenService($window) {
     get(){
       return $window.localStorage.getItem(TOKEN_NAME);
     },
-    set(token){
-      $window.localStorage.setItem(TOKEN_NAME, token);
+    set(payload){
+      $window.localStorage.setItem(TOKEN_NAME, payload.token);
+      $window.localStorage.setItem(ID, payload.id);
     },
     remove(){
       $window.localStorage.removeItem(TOKEN_NAME);
+      $window.localStorage.removeItem(ID);
     }
   };
 

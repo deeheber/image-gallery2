@@ -9,7 +9,7 @@ module.exports = {
         roles: user.roles
       }, sekrit, {expiresIn: '30 days'}, (err, token)=>{
         if (err) return reject(err);
-        resolve(token);
+        resolve({token, id: user._id});
       });
     });
   },
