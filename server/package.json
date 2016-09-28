@@ -3,8 +3,12 @@
   "version": "1.6.0",
   "description": "server for image gallery",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "test": "mocha"
   },
   "author": "Danielle Heberling",
   "license": "ISC",
@@ -18,7 +22,10 @@
     "nodemon": "^1.10.2"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "eslint": "^3.3.1",
+    "mocha": "^3.1.0",
     "nodemon": "^1.10.2"
   }
 }
