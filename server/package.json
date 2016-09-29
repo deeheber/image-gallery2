@@ -1,7 +1,7 @@
 {
   "name": "server",
-  "version": "1.6.0",
-  "description": "server for image gallery",
+  "version": "1.7.0",
+  "description": "server side source code for my image gallery",
   "main": "index.js",
   "directories": {
     "test": "test"

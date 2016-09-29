@@ -28,4 +28,7 @@
 - Can delete/update/add images from the individual album list view only
 
 ### Tests
+- application
 `cd app` and `npm run test`
+- server
+`cd server` and `npm run test`
