@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file
 
 ## 1.7.0 - 2016-09-29
 Added
-- User auth/login is now specific to the User
+- Photos/albums seen while logging in are now only visible to that user
 - General UI updates
 
 ## 1.6.0 - 2016-09-07
