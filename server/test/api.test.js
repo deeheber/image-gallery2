@@ -40,21 +40,50 @@ describe('api end to end', ()=>{
         .catch(done);
     });
 
-    // it('permits signin with correct username/password', ()=>{
+    it('permits signin with correct username/password', done=>{
+      request.post('/api/signin')
+        .send({ username: testUser.username, password: testUser.password })
+        .then(res => {
+          
+          assert.ok(res.body.auth.id);
+          assert.ok(res.body.auth.token);
+          done();
+        })
+        .catch(done);
+    });
 
-    // });
+    it('errors on signin with incorrect username', done=>{
+      request.post('/api/signin')
+        .send({ username: 'fake user', password: testUser.password })
+        .then(res => done('status should not be 200'))
+        .catch(res=>{
+          assert.equal(res.status, 400);
+          done();
+        })
+        .catch(done);
+    });
 
-    // it('errors with incorrect username', ()=>{
+    it('errors with incorrect password', done=>{
+      request.post('/api/signin')
+        .send({ username: testUser.username, password: 'fake password' })
+        .then(res => done('status should not be 200'))
+        .catch(res=>{
+          assert.equal(res.status, 400);
+          done();
+        })
+        .catch(done);
+    });
 
-    // });
-
-    // it('errors with incorrect password', ()=>{
-
-    // });
-
-    // it('errors when signing up using an email that exists in the system', ()=>{
-
-    // });
+    it('errors when signing up using a username that exists in the system', done=>{
+      request.post('/api/signup')
+        .send({ email: 'testemail@email.com', username: 'testUser', password: '123'})
+        .then(res => done('status should not be 200'))
+        .catch(res=>{
+          assert.equal(res.status, 500);
+          done();
+        })
+        .catch(done);
+    });
 
   });
 
