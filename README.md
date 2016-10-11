@@ -31,4 +31,4 @@
 - application
 `cd app` and `npm run test`
 - server
-`cd server` and `npm run test`
+`cd server` and `npm run test` (the connected database must be running)
