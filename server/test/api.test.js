@@ -29,7 +29,7 @@ describe('api end to end', ()=>{
   const testImage = {
     title: 'test',
     description: 'desc',
-    link: 'www.somthing.com'
+    link: 'www.something.com'
   };
 
   let token = '';
@@ -192,6 +192,46 @@ describe('api end to end', ()=>{
           .catch(done);
       });
       
+    });
+
+    describe('image and album routes', ()=>{
+
+      it('adds an album and image to the album', done=>{
+        request.post(`/api/albums/${testUser._id}`)
+          .set({Authorization: token})
+          .send(testAlbum)
+          .then(res=>{
+            // res is the new album
+            testAlbum._id = res.body._id;
+            testImage.album = res.body._id;
+            testImage.user = res.body.user;
+
+            return request.post(`/api/images/${testUser._id}`)
+            .set({Authorization: token})
+            .send(testImage);
+          })
+          .then(res=>{
+            // res is the image added to the new album
+            assert.equal(res.body.album, testAlbum._id);
+            done();
+          })
+          .catch(done);
+
+
+      });
+
+      it('retrieves images from the new album', done=>{
+        request.get(`/api/albums/${testAlbum._id}/content`)
+          .set({Authorization: token})
+          .then(res=>{
+            assert.equal(res.body[1].length, 1);
+            assert.equal(res.body[0].title, 'This is a test album');
+            assert.equal(res.body[1][0].title, 'hello world');
+            done();
+          })
+          .catch(done);
+      });
+
     });
 
   });
